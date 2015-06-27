@@ -1,12 +1,14 @@
 # Site settings
-title: Code Heaven
-email: codeheaver@gmail.com
+title: CodeHeaven
+email: codeheaven.io@gmail.com
 description: >
-  Awsome description
+  Cause your code takes me to paradise.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://codeheaven.io" # the base hostname & protocol for your site
-# twitter_username: jekyllrb
-# github_username:  jekyll
+lang: en
+
+twitter_username: codeheaven_io
+github_username: codeheaven-io
 
 # Build settings
 markdown: kramdown

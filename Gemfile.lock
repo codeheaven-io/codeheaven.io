@@ -67,6 +67,8 @@ GEM
       octopress-hooks (~> 2.0)
     octopress-hooks (2.6.1)
       jekyll (>= 2.0)
+    octopress-multilingual (1.2.0)
+      octopress-hooks
     parslet (1.5.0)
       blankslate (~> 2.0)
     posix-spawn (0.3.11)
@@ -94,3 +96,4 @@ DEPENDENCIES
   jekyll-sitemap
   octopress (~> 3.0.0.rc)
   octopress-escape-code
+  octopress-multilingual

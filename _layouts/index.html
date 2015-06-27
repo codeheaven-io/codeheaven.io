@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        <h2 class="post-title">
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+
+        {% include translations.html item=post %}
+
+    </li>
+    {% endfor %}
+</ul>

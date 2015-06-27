@@ -1,0 +1,15 @@
+{% if include.item.translated %}
+<ul>
+  {% for t in include.item.translations %}
+  <li>
+    <a href="{{ t.url }}">
+      {% if t.lang != null %}
+        {{ t.lang | language_name }}
+      {% else %}
+        {{ site.lang | language_name }}
+      {% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

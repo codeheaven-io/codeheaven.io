@@ -1,6 +1,6 @@
 # CodeHeaven.io
 
-Cause your codes takes me to paradise.
+Cause your code takes me to paradise.
 
 ## Requirements
 
