@@ -1,6 +1,8 @@
 {% if include.author %}
   {% assign author = site.data.authors[include.author] %}
-  <p>{{ author.name }}</p>
+  {{ author.name }}
+  |
   <a href="https://twitter.com/{{ author.twitter }}">@{{ author.twitter }}</a>
+  |
   <a href="https://github.com/{{ author.github }}">{{ author.github }}</a>
 {% endif %}
