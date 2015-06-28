@@ -5,7 +5,7 @@
     <a href="{{ site.url }}authors/{{ include.author }}.html">{{ author.name }}</a>
     |
   {% endunless %}
-  <a href="https://twitter.com/{{ author.twitter }}">@{{ author.twitter }}</a>
+  <a href="{{ site.data.resources.twitter }}{{ author.twitter }}" target="_blank">@{{ author.twitter }}</a>
   |
-  <a href="https://github.com/{{ author.github }}">{{ author.github }}</a>
+  <a href="{{ site.data.resources.github }}{{ author.github }}" target="_blank">{{ author.github }}</a>
 {% endif %}
