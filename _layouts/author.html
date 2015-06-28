@@ -6,8 +6,8 @@ layout: default
 
 <header>
   <h1>{{ author.name }}</h1>
-  <div>{% include avatar.html author=author size=100 %}</div>
-  {% include author.html author=page.author except_name=true %}
+  <div>{% include author/avatar.html author=author size=100 %}</div>
+  {% include author/links.html author=page.author except_name=true %}
 </header>
 
 {{ author.about }}
@@ -18,12 +18,8 @@ layout: default
   {% for post in site.posts do %}
     {% if post.author == page.author %}
       <li>
-        {{ post.date | date: "%a, %b %d, %y" }}
-        -
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        {% if post.lang != null %}
-          - {{ post.lang | language_name }}
-        {% endif %}
+        {{ post.date | date: "%a, %b %d, %y" }} -
+        <a href="{{ post.url }}">{{ post.title }}</a>{% if post.lang != null %} - {{ post.lang | language_name }}{% endif %}
       </li>
     {% endif %}
   {% endfor %}
