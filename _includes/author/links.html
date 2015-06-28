@@ -1,11 +1,13 @@
-{% assign author = site.data.authors[include.author] %}
+{% assign page_author = include.author %}
 
-{% if author == null %}
-  {% assign author = site.data.authors[site.author] %}
+{% if page_author == nil %}
+  {% assign page_author = site.author %}
 {% endif %}
 
+{% assign author = site.data.authors[page_author] %}
+
 {% unless include.except_name %}
-  <a href="{{ site.url }}authors/{{ include.author }}.html">{{ author.name }}</a>
+  <a href="{{ site.url }}authors/{{ page_author }}.html">{{ author.name }}</a>
   |
 {% endunless %}
 <a href="{{ site.data.resources.github }}{{ author.github }}" target="_blank">{{ author.github }}</a>
