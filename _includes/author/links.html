@@ -1,11 +1,13 @@
-{% if include.author %}
-  {% assign author = site.data.authors[include.author] %}
+{% assign author = site.data.authors[include.author] %}
 
-  {% unless include.except_name %}
-    <a href="{{ site.url }}authors/{{ include.author }}.html">{{ author.name }}</a>
-    |
-  {% endunless %}
-  <a href="{{ site.data.resources.github }}{{ author.github }}" target="_blank">{{ author.github }}</a>
-  |
-  <a href="{{ site.data.resources.twitter }}{{ author.twitter }}" target="_blank">@{{ author.twitter }}</a>
+{% if author == null %}
+  {% assign author = site.data.authors[site.author] %}
 {% endif %}
+
+{% unless include.except_name %}
+  <a href="{{ site.url }}authors/{{ include.author }}.html">{{ author.name }}</a>
+  |
+{% endunless %}
+<a href="{{ site.data.resources.github }}{{ author.github }}" target="_blank">{{ author.github }}</a>
+|
+<a href="{{ site.data.resources.twitter }}{{ author.twitter }}" target="_blank">@{{ author.twitter }}</a>
