@@ -16,7 +16,7 @@ layout: default
 
 <ul>
   {% for post in site.posts do %}
-    {% if post.author == page.author %}
+    {% if (post.author == page.author) or (post.author == nil and page.author == site.author) %}
       <li>
         {{ post.date | date: "%a, %b %d, %y" }} -
         <a href="{{ post.url }}">{{ post.title }}</a>{% if post.lang != null %} - {{ post.lang | language_name }}{% endif %}
