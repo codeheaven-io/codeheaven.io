@@ -6,6 +6,7 @@ layout: default
 
 <header>
   <h1>{{ author.name }}</h1>
+  <img src="{{ author.gravatar_url }}" alt="{{ author.name }} Gravatar picture"/>
   {% include author.html author=page.author except_name=true %}
 </header>
 
