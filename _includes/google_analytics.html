@@ -1,5 +1,5 @@
 {% if site.google_universal_analytics %}
-  {% raw %}
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -9,5 +9,5 @@
       ga('create', '{{ site.google_universal_analytics }}', '{{ site.google_universal_analytics_cookiedomain }}');
       ga('send', 'pageview');
     </script>
-  {% endraw %}
+
 {% endif %}
