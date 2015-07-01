@@ -4,11 +4,13 @@ email: codeheaven.io@gmail.com
 description: >
   Cause your code takes me to paradise.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://codeheaven.io" # the base hostname & protocol for your site
+#url: "http://codeheaven.io" # the base hostname & protocol for your site
+url: "http://localhost:4000/" # the base hostname & protocol for your site
+author: codeheaven
 lang: en
 
-twitter_username: codeheaven_io
 github_username: codeheaven-io
+twitter_username: codeheaven_io
 
 # Build settings
 markdown: kramdown
@@ -29,20 +31,3 @@ headers:
     expires: '+3 years'
     cache_control: 'max-age=94608000'
     content_type: 'text/css'
-
-authors:
-  daniel:
-    name: Daniel Wayhs
-    github: dwayhs
-    twitter: dwayhs
-    about:
-  marlon:
-    name: Marlon Bernardes
-    github: marlonbernardes
-    twitter: marlonjb
-    about:
-  rafael:
-    name: Rafael Eyng
-    github: rafaeleyng
-    twitter: rafaeleyng
-    about: Software Developer at ...
