@@ -14,6 +14,9 @@ twitter_username: codeheaven_io
 
 # Build settings
 markdown: kramdown
+  
+kramdown:
+  input: GFM
 
 # Google Analytics info
 google_universal_analytics: UA-60941725-1
