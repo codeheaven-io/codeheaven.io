@@ -5,6 +5,20 @@ header {
 
 .post-title {
   font-size: 3.2rem;
+.page-header {
+  margin: 0 -25% 3rem -25%;
+  background-color: #f2f2f2;
+  padding: 5rem 25%;
+
+  h1 {
+    font-size: 7rem;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
 }
 
 body {
