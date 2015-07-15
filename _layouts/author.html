@@ -4,7 +4,7 @@ layout: default
 
 {% assign author = site.data.authors[page.author] %}
 
-<header>
+<header class="page-header">
   <h1>{{ author.name }}</h1>
   <div>{% include author/avatar.html author=author size=100 %}</div>
   {% include author/links.html author=page.author except_name=true %}

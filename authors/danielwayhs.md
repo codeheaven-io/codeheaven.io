@@ -1,4 +1,4 @@
 ---
 layout: author
-author: marlon
+author: danielwayhs
 ---
