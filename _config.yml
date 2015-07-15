@@ -12,6 +12,8 @@ lang: en
 github_username: codeheaven-io
 twitter_username: codeheaven_io
 
+permalink: :title.html
+
 # Build settings
 markdown: kramdown
   
