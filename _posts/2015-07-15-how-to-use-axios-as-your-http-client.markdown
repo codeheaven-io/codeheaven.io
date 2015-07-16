@@ -93,7 +93,7 @@ axios.get('https://api.github.com/users/codeheaven-io');
 
 ## Sending custom headers with axios
 
-To send custom headers supply an object containing the headers as your last arguments.
+To send custom headers supply an object containing the headers as the last argument:
 
 ```js
 var config = {
