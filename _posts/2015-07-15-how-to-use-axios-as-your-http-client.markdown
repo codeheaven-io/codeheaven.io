@@ -14,19 +14,22 @@ Axios is a promise-based HTTP client that works both in the browser and in a nod
 
 ## Installation
 
-Using npm:
+Before using axios, you first need to install it. There are several ways of doing so:
+
+1) Using npm:
 
 ```
-$ npm install axios --save
+$ npm install axios
 ```
 
-Using bower:
+2) Using bower:
 
 ```
 $ bower install axios
 ```
 
-You can also dowload it manually at [https://github.com/mzabriskie/axios/tree/master/dist](https://github.com/mzabriskie/axios/tree/master/dist)
+3) Manual download:
+[https://github.com/mzabriskie/axios/tree/master/dist](https://github.com/mzabriskie/axios/tree/master/dist)
 
 ## First steps
 
