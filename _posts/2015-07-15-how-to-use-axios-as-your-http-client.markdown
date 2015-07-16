@@ -52,6 +52,8 @@ axios.post('/save', { firstName: 'Marlon', lastName: 'Bernardes' })
 
 Besides `post` and `get`, there are also methods named after the http methods `delete`, `head`, `put` and `patch`. 
 
+The methods `post`, `put` and `patch` require a parameter containing the data to be sent.
+
 ## Performing Multiple Requests simultaneously
 
 To execute multiple requests in parallel, simply provide an array argument to `axios.all`. When all requests are complete, you'll receive an array containing the response objects in the same order they were sent. Alternatively you can use `axios.spread` to spread the array into multiple arguments. Spread is preferred since dealing with array indexes could be misleading.
