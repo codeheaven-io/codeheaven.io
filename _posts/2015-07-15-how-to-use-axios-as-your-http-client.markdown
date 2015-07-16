@@ -51,7 +51,7 @@ Besides `post` and `get`, there are also methods named after the http methods `d
 
 ## Performing Multiple Requests simultaneously
 
-To execute multiple requests in parallel, simply provide an array argument to `axios.all`. When both requests are complete, you'll receive an array containing the response objects in the same order they were sent. Alternatively you can use `axios.spread` to spread the array into multiple arguments. Spread is preferred since dealing with array indexes could be misleading.
+To execute multiple requests in parallel, simply provide an array argument to `axios.all`. When all requests are complete, you'll receive an array containing the response objects in the same order they were sent. Alternatively you can use `axios.spread` to spread the array into multiple arguments. Spread is preferred since dealing with array indexes could be misleading.
 
 ```js
 // Requests will be executed in parallel...
@@ -83,6 +83,5 @@ Simply import axios (using a `<script>` tag, requirejs, browserify, webpack etc)
 <script src="./bower_components/axios/dist/axios.js"></script>
 axios.get('https://api.github.com/users/codeheaven-io');
 ```
-
 
 You can read more information about axios here: [https://github.com/mzabriskie/axios](https://github.com/mzabriskie/axios)
