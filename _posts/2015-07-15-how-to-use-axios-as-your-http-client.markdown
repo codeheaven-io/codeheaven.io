@@ -84,7 +84,9 @@ Simply import axios (using a `<script>` tag, requirejs, browserify, webpack etc)
 
 ```html
 <script src="./bower_components/axios/dist/axios.js"></script>
+<script>
 axios.get('https://api.github.com/users/codeheaven-io');
+</script>
 ```
 
 You can read more information about axios here: [https://github.com/mzabriskie/axios](https://github.com/mzabriskie/axios)
