@@ -10,7 +10,7 @@ excerpt: >
 
 ## Introduction
 
-Axios is a promise-based HTTP client that works both in the browser and in a node.js environment. It basically provides a single API for dealing with `XMLHttpRequest`s and node’s `http` interface. Besides that, it wraps the requests using a polyfill for ES6 new's promise syntax.
+Axios is a promise-based HTTP client that works both in the browser and in a node.js environment. It basically provides a single API for dealing with `XMLHttpRequest`s and node’s `http` interface. Besides that, it wraps the requests using a polyfill for ES6 new's promise syntax. In this post we'll see how to perform HTTP requests using axios. Looks *promising*, right? Let's go!
 
 ## Installation
 
