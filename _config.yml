@@ -12,7 +12,7 @@ github_username: codeheaven-io
 twitter_username: codeheaven_io
 
 # 'none' has the same effect as /:categories/:title.html
-permalink: none
+permalink: /:categories/:title
 
 # Build settings
 markdown: kramdown
