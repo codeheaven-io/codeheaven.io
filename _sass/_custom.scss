@@ -3,6 +3,17 @@
   padding: 4rem 0;
 }
 
+article {
+  a {
+    color: #0A7187;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #5496A4; 
+    text-decoration: none;
+  }
+}
+
 .page-header {
   margin: 0 -25% 3rem -25%;
   background-color: #f2f2f2;
