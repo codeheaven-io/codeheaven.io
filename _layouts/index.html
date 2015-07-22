@@ -6,8 +6,8 @@ layout: default
     <li>
         <p class="post-meta">
           <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-          • {{post.author}}
-          
+          • {{site.data.authors[post.author].name}}
+
         </p>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
           <h2 class="post-title">{{ post.title }}</h2>
