@@ -6,6 +6,7 @@ author: rafaeleyng
 lang: pt
 excerpt: >
   Programação Funcional fica em algum lugar entre a Ciência da Computação e a Matemática. Esse é um tema denso e teórico, de forma que a minha meta aqui é te mostrar como começar a usar no seu dia-a-dia algumas funções clássicas para manipulação de coleções, focando em exemplos práticos.
+translation_id: cb68d175ae1e479ad2e0d67b08b3c938
 ---
 
 ## Introdução

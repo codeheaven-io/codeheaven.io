@@ -5,6 +5,7 @@ date: 2015-07-21T22:46:46-03:00
 author: rafaeleyng
 excerpt: >
   Functional Programming lies somewhere between Computer Science and Mathematics. It is a pretty dense and theoric subject, so the goal here is to show you how to start using some classic functions for collection manipulation in your everyday code.
+translation_id: cb68d175ae1e479ad2e0d67b08b3c938
 ---
 
 ## Introduction
