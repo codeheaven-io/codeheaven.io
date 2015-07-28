@@ -268,7 +268,7 @@ for (var i = 0; i < order.items.length; i++) {
 }
 ```
 
-**Basic implementation:** `reduce` is a function that, for each item of a collection, calls a function passing that item and an accumulator value as a parameter. This function should use that item and the accumulator to calculate some value, that will be the new value of the accumulator. `reduce` receives an initial accumulator value, that for addition will be usually `0`.
+**Basic implementation:** `reduce` is a function that, for each item of a collection, calls a function passing that item and an accumulator value as parameters. This function should use that item and the accumulator to calculate some value, that will be the new value of the accumulator. `reduce` receives an initial accumulator value, that for addition will be usually `0`.
 
 ```javascript
 var reduce = function(list, operation, initial) {
