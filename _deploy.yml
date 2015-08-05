@@ -1,0 +1,20 @@
+method: s3                                # How do you want to deploy? git, rsync or s3.
+site_dir: _site                           # Location of your static site files.
+bucket_name: codeheaven.io                # Name of the S3 bucket where these files will be stored.
+access_key_id: <preencher>                # Get this from your AWS console at aws.amazon.com.
+secret_access_key: <preencher>            # Keep it safe; keep it secret. Keep this file in your .gitignore.
+distribution_id: <preencher>              # Get this from your CloudFront page at https://console.aws.amazon.com/cloudfront/
+remote_path: /                            # relative path on bucket where files should be copied.
+region: sa-east-1                         # Region where your bucket is located.
+verbose: true                            # Print out all file operations.
+incremental: false                        # Only upload new/changed files
+delete: false                             # Remove files from destination which do not match source files.
+headers:
+  - filename: '^assets.*\.js$'
+    expires: '+3 years'
+    cache_control: 'max-age=94608000'
+    content_type: 'application/javascript'
+  - filename: '^assets.*\.css$'
+    expires: '+3 years'
+    cache_control: 'max-age=94608000'
+    content_type: 'text/css'
