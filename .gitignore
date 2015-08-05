@@ -1,5 +1,6 @@
 _site
 .sass-cache
+_deploy.yml
 
 # RubyMine
 .idea/*

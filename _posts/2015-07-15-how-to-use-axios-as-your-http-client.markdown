@@ -3,8 +3,9 @@ layout: post
 title: "How to Use Axios as Your HTTP Client"
 date: 2015-07-15T22:39:43-03:00
 author: marlonbernardes
+translation_id: d41d8cd98f00b204e9800998ecf8427e
 excerpt: >
-  Axios is a promise-based HTTP client that works both in the browser and in a node.js environment. 
+  Axios is a promise-based HTTP client that works both in the browser and in a node.js environment.
   In this post we'll see how to perform HTTP requests using it.
 ---
 
@@ -50,7 +51,7 @@ axios.post('/save', { firstName: 'Marlon', lastName: 'Bernardes' })
   });  
 ```
 
-Besides `post` and `get`, there are also methods named after the http methods `delete`, `head`, `put` and `patch`. 
+Besides `post` and `get`, there are also methods named after the http methods `delete`, `head`, `put` and `patch`.
 
 The methods `post`, `put` and `patch` require a parameter containing the data to be sent.
 
