@@ -1,6 +1,7 @@
 _site
 .sass-cache
 .env
+_deploy.yml
 
 # RubyMine
 .idea/*

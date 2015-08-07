@@ -19,6 +19,11 @@ bundle install
 jekyll serve
 ```
 
+## Deploying
+
+  1. Create a file named `_deploy.yml` in the root folder
+  2. Run `jekyll build && octopress deploy`
+
 ## Create a post
 ```shell
 octopress new post 'How to codez'
