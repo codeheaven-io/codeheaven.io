@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Vimium: Your New Favorite Browser Extensions!"
+title: "Vimium: Your New Favorite Browser Extension!"
 date: 2015-09-18T13:13:29-03:00
 lang: "en"
 author: marlonbernardes
