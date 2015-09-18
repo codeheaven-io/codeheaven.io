@@ -29,7 +29,6 @@ jekyll serve
 octopress new post 'How to codez'
 ```
 
-<<<<<<< HEAD
 ## Deploying to production
 
   1. Create a `.env` file in the root folder of your project with the following contents:
