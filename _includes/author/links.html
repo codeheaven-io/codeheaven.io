@@ -7,7 +7,7 @@
 {% assign author = site.data.authors[page_author] %}
 
 {% unless include.except_name %}
-  <a href="{{ site.url }}authors/{{ page_author }}.html">{{ author.name }}</a>
+<a rel="author" itemprop="author" onclick="_gaq.push(['_trackEvent', 'post_author', 'Post View', '{{ page.author }}'])"  href="{{ site.url }}authors/{{ page_author }}.html">{{ author.name }}</a>
   |
 {% endunless %}
 <a href="{{ site.data.resources.github }}{{ author.github }}" target="_blank">{{ author.github }}</a>

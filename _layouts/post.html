@@ -1,16 +1,19 @@
 ---
 layout: default
 ---
-<div class="post">
-
+<section class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <span class="hidden" itemprop="publisher">CodeHeaven</span>
+  <span class="hidden" itemprop="keywords">{{ page.keywords }}</span>
   <header class="page-header">
-    <h1>{{ page.title }}</h1>
+    <h1 itemprop="headline">{{ page.title }}</h1>
     {% include translations.html item=page %}
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    <p class="post-meta">
+    <time itemprop="datePublished" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.meta %} • {{ page.meta }}{% endif %}
+    </p>
     <p>{% include author/links.html author=page.author %}</p>
   </header>
 
-  <article class="post-content">
+  <article class="post-content" itemprop="articleBody">
     {{ content }}
   </article>
 
@@ -29,4 +32,4 @@ layout: default
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-</div>
+</section>

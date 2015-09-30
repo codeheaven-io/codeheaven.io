@@ -1,11 +1,26 @@
 <head>
   <meta charset="utf-8">
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="author" content="">
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines }}{% else %}{{ site.description }}{% endif %}">
+  {% if page.lang %}
+  <meta name="language" content="{{page.lang}}" />
+  <meta name="content-language" content="{{page.lang}}" />
+  {% else %}
+  <meta name="language" content="en" />
+  <meta name="content-language" content="en" />
+  {% endif %}
+  {% if page.author %}
+  <meta name="author" content="{{site.data.authors[page.author].name}}">
+  {% else %}
+  <meta name="author" content="Marlon Bernardes, Rafael Eyng">
+  {% endif %}
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-
+  {% if page.keywords %}
+  <meta name="keywords" content="{{ page.keywords }}" />
+  {% else %}
+  <meta name="keywords" content="html, css, javascript, js, html5, css3, java, ruby, codeheaven, code, heaven, github, node, blog" />
+  {% endif %}
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
