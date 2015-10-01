@@ -9,7 +9,7 @@ article {
     text-decoration: none;
   }
   a:hover {
-    color: #5496A4; 
+    color: #5496A4;
     text-decoration: none;
   }
 }
@@ -38,7 +38,7 @@ b, strong {
 }
 
 .blog-menu {
-  float: right; 
+  float: right;
   padding: 0;
   font-family: $menu-font;
 
@@ -61,11 +61,15 @@ ul.post-list {
   list-style-type: none;
   li {
     border-bottom: thin solid #f3f3f3;
-    padding: 3rem 0;
-    margin-bottom: 3rem;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
   }
 }
 
-.hidden { 
+.hidden {
   display: none;
+}
+
+body {
+  font-size: 1.8em;
 }
