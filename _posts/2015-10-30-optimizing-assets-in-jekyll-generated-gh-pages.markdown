@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Optimizing Assets in Jekyll-generated Gh-pages"
+title: "Optimizing Assets in Jekyll-generated gh-pages"
 date: 2015-10-30T22:28:39-02:00
 author: rafaeleyng
 excerpt: >
-  TODO
+  Learn how to optimize assets for your Jekyll site without having to rely on plugins.
 ---
 
 ## Jekyll + gh-pages
@@ -13,14 +13,14 @@ If you have some static site generated with [Jekyll](https://jekyllrb.com/), cha
 
 gh-pages are awesome for their simplicity to host and deploy your static site, but they lack the ability to allow you customize your build process. Github won't allow you to run arbitrary Jekyll plugins at their environment, because of security concerns.
 
-In this post I've collected a bunch of techniques that you can use to optimize your assets at build time that you can use even when hosting your Jekyll site in gh-pages.
+In this post I've collected a bunch of techniques to optimize your assets at build time that you can use even when hosting your Jekyll site in gh-pages.
 
 
 ## Optimize HTML
 
 ### Minify HTML with Compress
 
-Jekyll Compress HTML is a Jekyll layout file that compresses HTML by removing unnecessary empty spaces characters and by removing optional HTML tags (http://www.w3.org/TR/html5/syntax.html#optional-tags).
+[Jekyll Compress HTML](https://github.com/penibelst/jekyll-compress-html) is a Jekyll layout file that compresses HTML by removing unnecessary empty spaces characters and by removing [optional HTML tags](http://www.w3.org/TR/html5/syntax.html#optional-tags).
 
 Is just a [single HTML file](https://github.com/penibelst/jekyll-compress-html/blob/master/site/_layouts/compress.html) that you download and put inside your `_layouts` folder. Then you reference it by putting
 
@@ -32,7 +32,7 @@ layout: compress
 
 in the front-matter of your default layout, or in your HTML files. You can also remove empty spaces from a JSON/XML file that you generate, using the same approach.
 
-You can check how it's done in [this commit](https://github.com/codeheaven-io/codeheaven.io/commit/96187be6c5c96c4785243c9ebf194823f5db9a35);
+You can check how it's done in [this commit](https://github.com/codeheaven-io/codeheaven.io/commit/96187be6c5c96c4785243c9ebf194823f5db9a35).
 
 ## Optimize CSS
 
@@ -50,12 +50,14 @@ To do this, you create a `inline.scss` file your `_includes` directory, and impo
 
 Then, we include this file inside a `<style>` tag in the head of the document, passing it through Jekyll's built-in [scssify](http://www.rubydoc.info/github/jekyll/jekyll/Jekyll/Filters:scssify) filter:
 
+{% raw %}
 ```
 {% capture inline_css %}
   {% include inline.scss %}
 {% endcapture %}
 {{ inline_css | scssify }}
 ```
+{% endraw %}
 
 You can check how it's done in [this commit](https://github.com/codeheaven-io/codeheaven.io/commit/12ed5810d2edf6a967154cd14ee77b69ccf25c7f).
 
@@ -84,3 +86,7 @@ You can check how it's done in [this commit](https://github.com/CWISoftware/even
 This is what I haven't discovered yet how to do without a plugin. If you know, please tell me in the comments box bellow.
 
 Jekyll Compress won't do it: it only removes empty space, and that's not how JS is minified. Besides, if you use a `//` for a comment, all of your code after that will be commented out.
+
+### Inline JS
+
+A simple `include` or `include_relative` of your file inside a `<script>` tag will do it. But it **won't work** with Jekyll Compress HTML, so pick which is better for your case.
