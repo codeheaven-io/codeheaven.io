@@ -5,6 +5,7 @@ date: 2015-10-30T22:28:39-02:00
 author: rafaeleyng
 excerpt: >
   Learn how to optimize assets for your Jekyll site without having to rely on plugins.
+translation_id: 72b9d74bc3627e2a44f18630af141ef2
 ---
 
 ## Jekyll + gh-pages
