@@ -3,6 +3,7 @@ layout: post
 title: "An Introduction to Ansible: Installing Jenkins on your server"
 date: 2015-12-07T10:52:25-02:00
 keywords: ansible, devops, jenkins, vagrant, centos, ubuntu
+author: marlonbernardes
 excerpt: >
   Ansible is an infrastructure automation platform that makes it easy
   to manage and configure your servers.
