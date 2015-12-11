@@ -102,7 +102,7 @@ ssh_args = -o StrictHostKeyChecking=no
 
 I do not recommend that you disable host key checking when you connect to a production server, since it adds a layer of protection against Man-in-the-middle attacks. Disabling it while connecting to a self-hosted VM is fine, though.
 
-Anyway, now you should have git installed on your server. One of the best thing of most ansible modules (such as yum) is that they are **idempotent**, that is, they can be run multiple times without side effects. In other words, git will only be installed when you run the script for the first time (considering it is not already installed by then).
+Anyway, now you should have git installed on your server. One of the best things of most ansible modules (such as yum) is that they are **idempotent**, that is, they can be run multiple times without side effects. In other words, git will only be installed when you run the script for the first time (considering it is not already installed by then).
 
 ## Refactoring things a bit
 
@@ -172,4 +172,6 @@ Jenkins run, by default, on port 8080. To test it using your browser you should 
 config.vm.network "forwarded_port", guest: 8080, host: 8080
 ```
 
-After that, simply run `vagrant reload`, wait a little bit until the jenkins service is running (it was installed by the role `geerlingguy.jenkins`) and point your browser to [http://localhost:8080](http://localhost:8080). Done!
+After that, simply run `vagrant reload`, wait a little bit until the jenkins service is running (it was installed by the role `geerlingguy.jenkins`) and point your browser to [http://localhost:8080](http://localhost:8080).
+
+Done!
