@@ -13,7 +13,9 @@ excerpt: >
 
 ## Introduction
 
-Enzyme is a JavaScript utility library for testing React components. To install it, simply run the following commands in your project's folder:
+Enzyme is a JavaScript utility library for testing React components. I recently discovered about it and decided to give it a try: I liked it so much that I decided to rewrite all my tests using it. Below you'll find how to get started and also some tips on how to properly unit test your React components.
+
+To install Enzyme, simply run the following commands in your project's folder:
 
 ```js
   npm install enzyme --save-dev
@@ -21,7 +23,7 @@ Enzyme is a JavaScript utility library for testing React components. To install 
   npm i --save-dev react-dom
 ```
 
-After that, you can simply import the methods `shallow`/`mount` from `enzyme.`. Importing React's TestUtils is not needed anymore.
+After that, you can simply import the methods `shallow`/`mount`/`render` from `enzyme.`. Importing React's TestUtils is not needed anymore.
 
 ```js
 import { shallow, mount } from 'enzyme';
@@ -93,9 +95,31 @@ it('should contain two table columns', () => {
 });
 ```
 
-Notice the usage of the method `find`, one of the beauties of Enzyme. We all gotta agree that `find` is a better name than React's  `scryRenderedComponentsWithTypeWhyTheHellThisNameIsSoLong`. Most Enzyme method names were based on names from jQuery API.
+## Finding elements with Enzyme
 
-## Shallow Rendering: Other useful examples
+In the example above, we used the method `find`, one of the beauties of Enzyme. We all gotta agree that `find` is a better name than React's  `scryRenderedComponentsWithTypeWhyTheHellThisNameIsSoLong`. Most Enzyme method names were based on names from jQuery API.
+
+Beyond that, the method `find` has several different uses:
+
+  - **Finding elements using css selectors:**
+
+```js
+component.find('.my-class'); // by class name
+component.find('#my-id'); // by id
+component.find('td'); // by tag
+component.find('div.custom-class'); // by compound selector
+```
+
+  - **Finding elements using their properties:**
+
+```js
+component.find(TableRow); // by constructor
+component.find('TableRow'); // by display name
+```
+
+If you're familiar with React's TestUtils you have noticed that `find` alone can be used in place of (and has more power than)  `scryRenderedDOMComponentsWithClass`, `scryRenderedDOMComponentsWithTag` and `scryRenderedComponentsWithType`. Amazing!
+
+## Other useful examples
 
 Below you'll find some useful methods for testing your React components using Enzyme. I won't be covering all methods available in their API, but there is a link for their documentation in the end of this article.
 
@@ -133,6 +157,10 @@ it('allows us to set props', () => {
   expect(wrapper.props('bar')).to.equal('foo');
 });
 ```
+
+## Conclusion
+
+Enzyme is a great test utility for React. It provides a well written API (and intuitive to use), has a great documentation and it's methods make it easier to unit test React components'. I suggest that you give it a try!
 
 
 ## References
