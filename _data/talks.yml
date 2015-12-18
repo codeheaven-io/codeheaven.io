@@ -1,0 +1,24 @@
+list:
+  - name: An introduction to Git & GitHub
+    location: TechParty, Faccat
+    authors:
+      - marlonbernardes
+      - rafaeleyng
+    date: Apr 07, 2015
+    media:
+      - description: Slides
+        link: https://speakerdeck.com/codeheaven/git-and-github
+        flag: brazil.png
+      - description: Video
+        link: https://www.youtube.com/watch?v=L_aGxsbNFW0
+        flag: brazil.png
+
+  - name: A practical guide to Spring Boot
+    location: The Developer's Conference, Porto Alegre
+    date: Sep 24, 2015
+    authors:
+      - marlonbernardes
+    media:
+      - description: Source code
+        link: https://github.com/marlonbernardes/tdc-2015-spring-boot
+        flag: us.png

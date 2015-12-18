@@ -73,3 +73,19 @@ ul.post-list {
 body {
   font-size: 1.8em;
 }
+
+.talk-author-name {
+
+  span:last-child:after {
+    content: '';
+  }
+
+  span:after {
+    content: ', ';
+  }
+
+}
+
+.talk-media-link {
+  color: #4C83B5;
+}
