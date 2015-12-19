@@ -1,10 +1,8 @@
 # Site settings
 title: CodeHeaven
 email: codeheaven.io@gmail.com
-description: >
-  Cause your code takes me to paradise.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://codeheaven.io/" 
+url: "http://codeheaven.io/"
 author: codeheaven
 lang: en
 
@@ -16,7 +14,7 @@ permalink: /:categories/:title
 
 # Build settings
 markdown: kramdown
-  
+
 kramdown:
   input: GFM
   syntax_highlighter: rouge
