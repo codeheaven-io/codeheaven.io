@@ -19,28 +19,11 @@ bundle install
 jekyll serve
 ```
 
-## Deploying
-
-  1. Create a file named `_deploy.yml` in the root folder
-  2. Run `jekyll build && octopress deploy`
-
 ## Create a post
 ```shell
 octopress new post 'How to codez'
 ```
 
-## Deploying to production
-
-  1. Create a `.env` file in the root folder of your project with the following contents:
-
-  ```yaml
-  S3_ID: <Your AWS Access Key ID>
-  S3_SECRET: <Your AWS Secret Access Key> 
-  ```
-
-  2. Run `rake production`
-
-=======
 ## Create a multilingual a post
 
 We use [Octopress Multilingual](https://github.com/octopress/multilingual) for this.
@@ -55,3 +38,14 @@ Our default language is English. Please follow this standard when creating a mul
 ```bash
 $ octopress id _posts/my_awesome_post.markdown _posts/my_awesome_post-pt.markdown [other posts...]
 ```
+
+## Deploying to production
+
+  1. Create a `.env` file in the root folder of your project with the following contents:
+
+  ```yaml
+  S3_ID: <Your AWS Access Key ID>
+  S3_SECRET: <Your AWS Secret Access Key> 
+  ```
+
+  2. Run `rake production`
