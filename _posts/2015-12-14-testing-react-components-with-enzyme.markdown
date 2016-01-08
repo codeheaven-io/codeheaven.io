@@ -148,7 +148,7 @@ Quoting their docs, full rendering  *is ideal for use cases where you have compo
 
 Differently from shallow rendering, full rendering interacts with the DOM and renders the whole component tree.
 
-```
+```js
 it('allows us to set props', () => {
   // Use the method 'mount' to perform a full render
   const foo = mount(<Foo bar='baz' />);
@@ -160,7 +160,7 @@ it('allows us to set props', () => {
 
 ## Conclusion
 
-Enzyme is a great test utility for React. It provides a well written API (and intuitive to use), has a great documentation and it's methods make it easier to unit test React components'. I suggest that you give it a try!
+Enzyme is a great test utility for React. It provides a well written API (and intuitive to use), has a great documentation and its methods make it easier to unit test React components'. I suggest that you give it a try!
 
 
 ## References
