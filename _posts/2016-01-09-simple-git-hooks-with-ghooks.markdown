@@ -4,6 +4,8 @@ title: "Simple Git Hooks With Ghooks"
 date: 2016-01-09T22:18:59-02:00
 keywords: git, hooks, workflow
 author: rafaeleyng
+excerpt: >
+  Learn how to use git hooks easily to leverage best practices in your workflow.
 ---
 
 ## git hooks
