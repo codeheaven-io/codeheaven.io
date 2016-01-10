@@ -17,10 +17,8 @@ Enzyme is a JavaScript utility library for testing React components. I recently 
 
 To install Enzyme, simply run the following commands in your project's folder:
 
-```js
-  npm install enzyme --save-dev
-  npm i --save-dev react-addons-test-utils
-  npm i --save-dev react-dom
+```sh
+  npm i enzyme react-dom react-addons-test-utils -D
 ```
 
 After that, you can simply import the methods `shallow`/`mount`/`render` from `enzyme.`. Importing React's TestUtils is not needed anymore.
