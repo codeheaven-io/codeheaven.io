@@ -4,16 +4,41 @@ title: "15 Things to Know About Ansible on Day One"
 date: 2016-01-11T10:53:11-02:00
 keywords: react, testing, javascript
 author: marlonbernardes
-published: false
 excerpt: >
   Ansible
 ---
 
 
-## 1 - Variable precedence
+## 1 - You can pass parameters to roles
 
+It's a good practice to create roles to organize your playbooks. Let's say we want to create a role for installing Jenkins. The folder structure for this role could look something like this:
 
-## 2 - How to make the command module faster and idempotent
+```
+myapplication/
+   files/
+   templates/
+   tasks/
+   handlers/
+   defaults/
+```
+
+The folder `defaults` is used to store the values of default vars for a role. Inside of it we could have this `main.yml` file:
+
+```yaml
+jenkins_port: 8080
+jenkins_context_path: /jenkins
+jenkins_home: /jenkins
+```
+
+You could overwrite the default variables, by passing different parameters to the role like so:
+
+```yml
+roles:
+   - { role: jenkins, jenkins_port: 8181, jenkins_home: '/jenkins1' }
+   - { role: jenkins, jenkins_port: 8080, jenkins_home: '/jenkins2' }
+```
+
+## 2 - How to make the command module idempotent
 
 Idempotence is the property of certain operations that can be executed multiple times without changing the result of the initial application. This concept is present in most Ansible modules: you specify the desired final state and Ansible decides if the task should be run. This principle is not applied by default to the `command` module. By default, if you have the task below in your playbook, it will always be run:
 
@@ -29,7 +54,7 @@ In order to achieve idempotence, you could use the attribute `creates`. When pre
 
 Always have in mind that Ansible has a lot of modules and most common operations do not require the use of the command module. For instance, there are modules for creating [filesystems](http://docs.ansible.com/ansible/filesystem_module.html), [adding entries to the hosts file](http://docs.ansible.com/ansible/hostname_module.html) and [managing cron entries](http://docs.ansible.com/ansible/cron_module.html). All these modules are idempotent by deault, so you always should prefer them.
 
-## 3 - Invoking setup module manually
+## 3 - Invoking 'setup' manually
 
 You probably have seen that the first thing Ansible does when it runs a playbook is something like this:
 
@@ -38,7 +63,7 @@ TASK [setup] *******************************************************************
 ok: [servername]
 ```
 
-This happens because Ansible invokes the special module `setup` before executing any task. The setup module connects to the host and gather facts for all kind of details: IP address, disk space, CPU architecture, memory available and more. It could be useful to invoke this module manually as a quick way to gather information about your hosts. In order to do so simply run the command below:
+This happens because Ansible invokes the special module `setup` before executing the first task. The setup module connects to the host and gather facts for all kind of details: IP address, disk space, CPU architecture, available memory and more. It could be useful to invoke this module manually as a quick way to gather information about your hosts. In order to do so simply run the command below:
 
 ```shell
 $ ansible localhost -m setup
@@ -51,7 +76,6 @@ localhost | SUCCESS => {
     (MANY more facts)
   }
 ```
-
 
 ## 4 - How to list all tasks of a playbook
 
@@ -202,7 +226,6 @@ ansible tem um comando --diff para mostrar as diferenças feitas por comandos co
 ## 14 - Running tasks step by step
 
 Sometimes you don't want to run all tasks in your playbook. This is somewhat common when you're writing a new playbook and want to test it. Ansible provides a way to let you decide which tasks you want to run, through the use of the `--step` flag. It will let you choose if you want to run the task (y), skip it (n), or (c)ontinue  without asking.
-
 
 ```shell
 # playbook.yml
