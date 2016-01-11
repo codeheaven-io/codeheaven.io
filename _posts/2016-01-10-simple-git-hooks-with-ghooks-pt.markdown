@@ -19,7 +19,7 @@ Quando você cria um projeto git, são criados diversos exemplos de hooks dentro
 
 ## O que há de errado com git hooks
 
-Seus git hooks ficam dentro da pasta `.git`. Esta pasta contém o seu hisórico local de versionamento, e os arquivos dentro dela não são versionados da mesma forma que os arquivos do resto do seu projeto. O problema é que, mesmo que você crie um arquivo de hook, você não poderá fazer commit desse arquivo e push para seu remote, então esse arquivo não existirá para o resto do seu time.
+Seus git hooks ficam dentro da pasta `.git`. Esta pasta contém o seu histórico local de versionamento, e os arquivos dentro dela não são versionados da mesma forma que os arquivos do resto do seu projeto. O problema é que, mesmo que você crie um arquivo de hook, você não poderá fazer commit desse arquivo e push para seu remote, então esse arquivo não existirá para o resto do seu time.
 
 ## ghooks ao resgate!
 
