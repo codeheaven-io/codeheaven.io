@@ -54,7 +54,7 @@ In order to achieve idempotence, you could use the attribute `creates`. When pre
 - command: /usr/bin/create-database.sh creates=/path/to/database
 ```
 
-Always have in mind that Ansible has a lot of modules and most common operations do not require the use of the command module. For instance, there are modules for creating [filesystems](http://docs.ansible.com/ansible/filesystem_module.html), [adding entries to the hosts file](http://docs.ansible.com/ansible/hostname_module.html) and [managing cron entries](http://docs.ansible.com/ansible/cron_module.html). All these modules are idempotent by deault, so you always should prefer them.
+Always have in mind that Ansible has a lot of modules and most common operations do not require the use of the command module. For instance, there are modules for creating [filesystems](http://docs.ansible.com/ansible/filesystem_module.html), [adding entries to the hosts file](http://docs.ansible.com/ansible/hostname_module.html) and [managing cron entries](http://docs.ansible.com/ansible/cron_module.html). All these modules are idempotent by default, so you always should prefer them.
 
 ## 3 - Using Ansible setup's module to gather information about your hosts
 
@@ -172,14 +172,14 @@ Sometimes you might want to run a task on your local machine instead of running 
 tasks:
  - name: take out of load balancer pool
    local_action: >
-      command /usr/bin/take_out_of_pool {{ inventory_hostname }}
+      command /usr/bin/take_out_of_pool {% raw %}{{ inventory_hostname }}{% endraw %}
 
  - name: update application
    yum: name=acme-web-stack state=latest
 
  - name: add back to load balancer pool
    local_action: >
-      command /usr/bin/take_out_of_pool {{ inventory_hostname }}
+      command /usr/bin/take_out_of_pool {% raw %}{{ inventory_hostname }}{% endraw %}
 
 ```
 
@@ -194,7 +194,7 @@ Below an example of how to launch an EC2 instance and wait for it to be availabl
 - name: Waiting for ec2 instances to listen on port 22
   wait_for:
     state=started
-    host={{ item.public_dns_name }}
+    host={% raw %}{{ item.public_dns_name }}{% endraw %}
     port=22
   with_items: ec2.instances
 ```
