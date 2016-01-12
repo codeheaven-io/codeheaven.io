@@ -179,9 +179,32 @@ To achieve that, you can you the `run_once` parameter to tell Ansible to run the
   run_once: true
 ```
 
-## 9 - Handlers are triggered only once, at the end
+## 9 - Handlers are special types of tasks
 
-http://docs.ansible.com/ansible/playbooks_intro.html#handlers-running-operations-on-change
+Handlers are tasks with unique names that will only be executed if notified by another task. They are really useful for restarting a service or rebooting the system.
+
+Handlers that were notified will be executed **one** time at the end of the playbook and, regardless of how many times they were notified. You can declare them with the `handler` clause and trigger them using `notify`.
+
+Here is an example of how restart two services when the contents of a file change, but only if the file changes (extracted from Ansible [docs](http://docs.ansible.com/ansible/playbooks_intro.html#handlers-running-operations-on-change)):
+
+```shell
+- name: template configuration file
+  template: src=template.j2 dest=/etc/foo.conf
+  notify:
+     - restart memcached
+     - restart apache
+```
+
+The handlers should be declared somewhere else in your playbook:
+
+```shell
+handlers:
+    - name: restart memcached
+      # The service module was used, but you could use whatever module you wanted
+      service: name=memcached state=restarted
+    - name: restart apache
+      service: name=apache state=restarted
+```
 
 ## 10 - Speeding things up with pipelining
 
@@ -234,7 +257,7 @@ To make it even more interesting, you can use Ansible patterns ([docs](http://do
 ```shell
   hosts: tag_env_production&:tag_type_db
   tasks:
-    - name: This task will be run on all servers with tags 'env=production' and 'type=db' 
+    - name: This task will be run on all servers with tags 'env=production' and 'type=db'
     # ...
 ```
 
