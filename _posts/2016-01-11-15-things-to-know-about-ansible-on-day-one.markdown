@@ -1,13 +1,12 @@
 ---
 layout: post
-title: "15 Things to Know About Ansible on Day One"
+title: "15 Things You Should Know About Ansible"
 date: 2016-01-11T10:53:11-02:00
 keywords: react, testing, javascript
 author: marlonbernardes
 excerpt: >
   Ansible
 ---
-
 
 ## 1 - You can pass parameters to roles
 
@@ -24,7 +23,7 @@ myapplication/
 
 The folder `defaults` is used to store the values of default vars for a role. Inside of it we could have this `main.yml` file:
 
-```yaml
+```shell
 jenkins_port: 8080
 jenkins_context_path: /jenkins
 jenkins_home: /jenkins
@@ -208,10 +207,31 @@ handlers:
 
 ## 10 - Speeding things up with pipelining
 
-- pipelining
-- fact caching
-- parallelism
-- !requiretty só é preciso quando pipelining tá ativo. Olha conceito de pipelining (PG 165)
+There are some things you can do to make Ansible run even faster:
+
+- **Enable pipelining**
+Enabling pipelining reduces the number of SSH operations required to execute a module on the remote server, by executing many ansible modules without actual file transfer. This can result in a very significant performance improvement when enabled, however when using “sudo:” operations you must first disable ‘requiretty’ in /etc/sudoers on all managed hosts.
+
+By default, this option is disabled to preserve compatibility with sudoers configurations that have requiretty (the default on many distros), but is highly recommended if you can enable it,
+
+```shell
+[defaults]
+pipelining = True
+```
+
+- **Turn off fact gathering or enable fact caching**
+If you are not using any Ansible facts in your tasks, you can disable the "fact gathering" step for improved speed. To do so, simply add the property `gather_facts: False` in your playbook:
+
+
+```shell
+- hosts: servername
+  gather_facts: False
+  tasks:
+    - name: ...
+    # ...
+```
+
+Alternatively, if you do need to use Ansible facts (automatically gathered by the setup task) you can cache them so subsequent executions will be faster. Ansible docs cover this in details [here](http://docs.ansible.com/ansible/playbooks_variables.html#fact-caching), if you want to read more.
 
 ## 11 - Ansible has several notification modules
 
