@@ -55,7 +55,7 @@ In order to achieve idempotence, you could use the attribute `creates`. When pre
 
 Always have in mind that Ansible has a lot of modules and most common operations do not require the use of the command module. For instance, there are modules for creating [filesystems](http://docs.ansible.com/ansible/filesystem_module.html), [adding entries to the hosts file](http://docs.ansible.com/ansible/hostname_module.html) and [managing cron entries](http://docs.ansible.com/ansible/cron_module.html). All these modules are idempotent by deault, so you always should prefer them.
 
-## 3 - Invoking 'setup' manually
+## 3 - Using Ansible setup's module to gather information about your hosts
 
 You probably have seen that the first thing Ansible does when it runs a playbook is something like this:
 
@@ -78,7 +78,7 @@ localhost | SUCCESS => {
   }
 ```
 
-## 4 - How to list all tasks of a playbook
+## 4 - You can list all tasks of a playbook
 
 Want to remember what a playbook does? Run `ansible-playbook` using the `--list-tasks` flag and Ansible will list all its tasks:
 
@@ -100,7 +100,7 @@ PLAY: #1
     TASK: jenkins : Get the jenkins-cli jarfile from the Jenkins server.
 ```
 
-## 5 - How to store sensitive information using ansible-vault
+## 5 - Use ansible-vault when you want to store sensitive information
 
 If one of your tasks requires sensitive information (let's say the database user and password), it's a good practice to keep this information encrypted, instead of storing it in plain text.
 
@@ -134,7 +134,7 @@ Another way is to store the password in a file (which should not be commited) an
 
 Read more about ansible-vault [here](http://docs.ansible.com/ansible/playbooks_vault.html).
 
-## 6 - Using with_items to iterate an array
+## 6 - Using with_items might be a good idea
 
 When you use the `with_items` clause, Ansible will create a variable called `{% raw %}{{item}}{% endraw %}` containing the value for the current iteration. Some modules handle collections of items really well and are actually faster than running the same task multiple times with different parameters.
 
@@ -163,7 +163,7 @@ When you use the `with_items` clause, Ansible will create a variable called `{% 
     sudo: True
 ```
 
-## 7 - Understanding Local Actions
+## 7 - How Local Actions work
 
 Sometimes you might want to run a task on your local machine instead of running it on the remote machine. This could be useful when we want to wait for the server to start (if it has just booted) or when we want to add some nodes in a load balancer pool (or removing them):
 
@@ -197,7 +197,6 @@ Below an example of how to launch an EC2 instance and wait for it to be availabl
     port=22
   with_items: ec2.instances
 ```
-
 
 ## 8 - You can run a task only once
 
@@ -243,9 +242,9 @@ handlers:
 There are some things you can do to make Ansible run even faster:
 
 - **Enable pipelining**
-Enabling pipelining reduces the number of SSH operations required to execute a module on the remote server, by executing many ansible modules without actual file transfer. This can result in a very significant performance improvement when enabled, however when using “sudo:” operations you must first disable ‘requiretty’ in /etc/sudoers on all managed hosts.
+Enabling pipelining reduces the number of SSH operations required to execute a module on the remote server, by piping scripts to the SSH session instead of copying it. This can result in a very significant performance improvement when enabled.
 
-By default, this option is disabled to preserve compatibility with sudoers configurations that have requiretty (the default on many distros), but is highly recommended if you can enable it,
+You should be careful, though. Pipelining will only work if the option `requiretty` is disabled on all remote machines in the sudoers file (/etc/sudoers).
 
 ```shell
 [defaults]
@@ -254,7 +253,6 @@ pipelining = True
 
 - **Turn off fact gathering or enable fact caching**
 If you are not using any Ansible facts in your tasks, you can disable the "fact gathering" step for improved speed. To do so, simply add the property `gather_facts: False` in your playbook:
-
 
 ```shell
 - hosts: servername
@@ -314,7 +312,7 @@ To make it even more interesting, you can use Ansible patterns ([docs](http://do
     # ...
 ```
 
-## 13 - Dry Run Mode
+## 13 - You can run things in "Dry Run" Mode
 
 Ansible supports running a playbook in dry run mode (also called Check Mode), in this mode, Ansible will **not** make any changes to your host, but simply report what changes would have been made if the playbook was run without this flag.
 
@@ -324,7 +322,7 @@ $ ansible-playbook --check playbook.yml
 
 While this is useful in some scenarios, it might not work properly if your tasks use conditional steps.
 
-## 14 - Running tasks step by step
+## 14 - Tasks can ben run step-by-step
 
 Sometimes you don't want to run all tasks in your playbook. This is somewhat common when you're writing a new playbook and want to test it. Ansible provides a way to let you decide which tasks you want to run, through the use of the `--step` flag. It will let you choose if you want to run the task (y), skip it (n), or (c)ontinue  without asking.
 
@@ -345,7 +343,7 @@ $ ansible-playbook provision.yml -i hosts --step
 > Perform task: TASK: Second task (y/n/c): y
 ```
 
-## 15 - Running tasks based on their tags
+## 15 - Tasks can be run based on their tags
 
 You can add one or more tags to a task or a play. To do so, simply mark what you want to tag with the `tags` attribute:
 
