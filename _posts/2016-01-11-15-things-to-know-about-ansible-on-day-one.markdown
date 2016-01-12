@@ -261,7 +261,6 @@ To make it even more interesting, you can use Ansible patterns ([docs](http://do
     # ...
 ```
 
-
 ## 13 - Dry-run
 
 
@@ -279,11 +278,11 @@ Sometimes you don't want to run all tasks in your playbook. This is somewhat com
 ```shell
 # playbook.yml
 - hosts: servername
-    tasks:
-      - name: First task
-        # ...
-      - name: Second task
-        # ...
+  tasks:
+    - name: First task
+      # ...
+    - name: Second task
+      # ...
 
 $ ansible-playbook provision.yml -i hosts --step
 
@@ -292,8 +291,33 @@ $ ansible-playbook provision.yml -i hosts --step
 > Perform task: TASK: Second task (y/n/c): y
 ```
 
-## 15 - How to debug and troubleshoot
+## 15 - Running tasks based on their tags
 
--vvvv
-debug module
-assert module
+You can add one or more tags to a task or a play. To do so, simply mark what you want to tag with the `tags` attribute:
+
+```shell
+# playbook.yml
+- hosts: servername
+  tags:
+    - server
+  tasks:
+    - name: Download optional files
+      tags:
+        - download
+        - optional
+    - name: Install dependencies
+      tags:
+        - dependencies
+```
+
+Later on you can decide which tags to run or skip using the flags `--tags <tagname>` (or simply `-t`) and `--skip-tags <tagnames>`:
+
+```shell
+# will run only tasks with the tag 'dependencies'
+$ ansible-playbook --tags=dependencies playbook.yml
+
+# will run all tasks except the ones that contain the tag 'optional'
+$ ansible-playbook --skip-tags=optional playbook.yml
+```
+
+You can specify more than one tag by separating them with commas.
