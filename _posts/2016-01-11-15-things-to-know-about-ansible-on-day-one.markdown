@@ -179,9 +179,9 @@ To achieve that, you can you the `run_once` parameter to tell Ansible to run the
   run_once: true
 ```
 
-## 9 - failed_when and changed_when
+## 9 - Handlers are triggered only once, at the end
 
-- failedwhen e changedwhen, PG 128
+http://docs.ansible.com/ansible/playbooks_intro.html#handlers-running-operations-on-change
 
 ## 10 - Speeding things up with pipelining
 
@@ -210,9 +210,34 @@ Using ansible to automate your blue-green deployment? Running playbooks to provi
 
 There are also modules available for notificating irc, twillio, hipchat, jabber and [many more](http://docs.ansible.com/ansible/list_of_notification_modules.html).
 
-## 12 - Dynamic inventories
+## 12 - EC2 instances are automatically grouped by their tags
 
-dybamic inventory ec2 agrupa por tag. Tem exemplo de intersecção de tags (web e production). PG 212 início
+When using Amazon Web Services and Ansible's EC2 dynamic inventory script, all instances will be grouped based on their characteristics, such as their type, keypairs and tags. EC2 tags are simply key=name values associated with your instances and you can use them however you like. Some use tags to group their production/staging servers, mark the web servers or even the "active" servers during a blue-green deployment.
+
+EC2 Dynamic Inventory script uses the following pattern (without the brackets) when grouping hosts by tag:
+
+```
+tag_[TAG_NAME]_[TAG_VALUE]
+```
+
+So, if you want to run a task on all hosts with a tag `env=staging`, simply add this to your playbook:
+
+```shell
+  hosts: tag_env_staging
+  tasks:
+    - name: This task will be run on all servers with env == staging
+    # ...
+```
+
+To make it even more interesting, you can use Ansible patterns ([docs](http://docs.ansible.com/ansible/intro_patterns.html#patterns)) to be more specific about what hosts should be affected by a task. For example, if you want to execute a particular task on your production db servers (assuming they are properly tagged), you could use the intersect pattern (`:&`), like this:
+
+```shell
+  hosts: tag_env_production&:tag_type_db
+  tasks:
+    - name: This task will be run on all servers with tags 'env=production' and 'type=db' 
+    # ...
+```
+
 
 ## 13 - Dry-run
 
@@ -226,6 +251,7 @@ ansible tem um comando --diff para mostrar as diferenças feitas por comandos co
 ## 14 - Running tasks step by step
 
 Sometimes you don't want to run all tasks in your playbook. This is somewhat common when you're writing a new playbook and want to test it. Ansible provides a way to let you decide which tasks you want to run, through the use of the `--step` flag. It will let you choose if you want to run the task (y), skip it (n), or (c)ontinue  without asking.
+
 
 ```shell
 # playbook.yml
