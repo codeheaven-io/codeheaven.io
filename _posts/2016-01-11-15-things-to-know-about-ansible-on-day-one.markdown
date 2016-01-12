@@ -8,6 +8,8 @@ excerpt: >
   Ansible
 ---
 
+I've been working a lot with Ansible lately and decided to share some things I learned along the way. Below you'll find a list of 15 things I think you should know about Ansible. Missing something? Just leave a comment and share your own tips!
+
 ## 1 - You can pass parameters to roles
 
 It's a good practice to create roles to organize your playbooks. Let's say we want to create a role for installing Jenkins. The folder structure for this role could look something like this:
@@ -161,10 +163,41 @@ When you use the `with_items` clause, Ansible will create a variable called `{% 
     sudo: True
 ```
 
-## 7 - delegate_to and local_action
+## 7 - Understanding Local Actions
 
-- PG 121: variáveis tem escopo remoto em local action
-- delegate_to e local_action PG 122
+Sometimes you might want to run a task on your local machine instead of running it on the remote machine. This could be useful when we want to wait for the server to start (if it has just booted) or when we want to add some nodes in a load balancer pool (or removing them):
+
+```shell
+tasks:
+ - name: take out of load balancer pool
+   local_action: >
+      command /usr/bin/take_out_of_pool {{ inventory_hostname }}
+
+ - name: update application
+   yum: name=acme-web-stack state=latest
+
+ - name: add back to load balancer pool
+   local_action: >
+      command /usr/bin/take_out_of_pool {{ inventory_hostname }}
+
+```
+
+Below an example of how to launch an EC2 instance and wait for it to be available:
+
+```shell
+- name: Launching EC2 Instance
+    # instance options here
+  register: ec2
+
+
+- name: Waiting for ec2 instances to listen on port 22
+  wait_for:
+    state=started
+    host={{ item.public_dns_name }}
+    port=22
+  with_items: ec2.instances
+```
+
 
 ## 8 - You can run a task only once
 
@@ -281,14 +314,15 @@ To make it even more interesting, you can use Ansible patterns ([docs](http://do
     # ...
 ```
 
-## 13 - Dry-run
+## 13 - Dry Run Mode
 
+Ansible supports running a playbook in dry run mode (also called Check Mode), in this mode, Ansible will **not** make any changes to your host, but simply report what changes would have been made if the playbook was run without this flag.
 
--- diff
-copy, lineinfile, template
+```shell
+$ ansible-playbook --check playbook.yml
+```
 
-
-ansible tem um comando --diff para mostrar as diferenças feitas por comandos copy, template, lineinfile PG 269
+While this is useful in some scenarios, it might not work properly if your tasks use conditional steps.
 
 ## 14 - Running tasks step by step
 
@@ -341,3 +375,8 @@ $ ansible-playbook --skip-tags=optional playbook.yml
 ```
 
 You can specify more than one tag by separating them with commas.
+
+## References
+
+ - [Ansible Docs](http://docs.ansible.com/ansible/intro.html)
+ - [Ansible Up & Running Book, by Lorin Hochstein](http://shop.oreilly.com/product/0636920035626.do)
