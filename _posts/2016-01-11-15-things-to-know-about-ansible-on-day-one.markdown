@@ -87,8 +87,8 @@ PLAY: #1
   tasks:
     TASK: meta
     TASK: open-jdk : Install open jdk 1.8
-    TASK: mount-partition : Creating the filesystem for the device {{ device }} (if needed)
-    TASK: mount-partition : Mounting the device {{ device }} on path {{ path }}
+    TASK: mount-partition : Creating the filesystem for the device {% raw %}{{ device }} {% endraw %} (if needed)
+    TASK: mount-partition : Mounting the device {% raw %}{{ device }}{% endraw %} on path {% raw %}{{ path }}{% endraw %}
     TASK: jenkins : Ensure Jenkins repo is installed.
     TASK: jenkins : Add Jenkins repo GPG key.
     TASK: jenkins : Ensure Jenkins is present.
@@ -135,13 +135,13 @@ Read more about ansible-vault [here](http://docs.ansible.com/ansible/playbooks_v
 
 ## 6 - Using with_items to iterate an array
 
-When you use the `with_items` clause, Ansible will create a variable called `{{item}}` containing the value for the current iteration. Some modules handle collections of items really well and are actually faster than running the same task multiple times with different parameters.
+When you use the `with_items` clause, Ansible will create a variable called `{% raw %}{{item}}{% endraw %}` containing the value for the current iteration. Some modules handle collections of items really well and are actually faster than running the same task multiple times with different parameters.
 
 ```shell
 
   # Installing all packages with one task (faster)
   - name: install required packages using the apt module
-    apt: package={{item}} update_cache=yes
+    apt: package={% raw %}{{ item }} {% endraw %} update_cache=yes
     sudo: True
     with_items:
       - git
