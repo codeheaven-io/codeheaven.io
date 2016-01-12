@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "15 Things You Should Know About Ansible"
-date: 2016-01-11T10:53:11-02:00
-keywords: react, testing, javascript
+date: 2016-01-12T19:05:11-02:00
+keywords: ansible, devops
 author: marlonbernardes
 excerpt: >
-  Ansible
+  I've been working a lot with Ansible lately and decided to share some things I learned along the way.
+  In this post you'll find a list of 15 things I think you should know about Ansible.
 ---
 
 I've been working a lot with Ansible lately and decided to share some things I learned along the way. Below you'll find a list of 15 things I think you should know about Ansible. Missing something? Just leave a comment and share your own tips!
