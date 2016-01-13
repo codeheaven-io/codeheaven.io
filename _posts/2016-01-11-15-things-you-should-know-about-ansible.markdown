@@ -16,7 +16,7 @@ I've been working a lot with Ansible lately and decided to share some things I l
 It's a good practice to create roles to organize your playbooks. Let's say we want to create a role for installing Jenkins. The folder structure for this role could look something like this:
 
 ```
-myapplication/
+jenkins/
    files/
    templates/
    tasks/
