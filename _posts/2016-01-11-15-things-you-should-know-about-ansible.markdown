@@ -166,7 +166,7 @@ When you use the `with_items` clause, Ansible will create a variable called `{% 
 
 ## 7 - How Local Actions work
 
-Sometimes you might want to run a task on your local machine instead of running it on the remote machine. This could be useful when we want to wait for the server to start (if it has just booted) or when we want to add some nodes in a load balancer pool (or removing them):
+Sometimes you might want to run a task on your local machine instead of running it on the remote machine. This could be useful when we want to wait for the server to start (if it has just booted) or when we want to add some nodes in a load balancer pool (or remove them):
 
 ```shell
 tasks:
@@ -183,7 +183,7 @@ tasks:
 
 ```
 
-Below an example of how to launch an EC2 instance and wait for it to be available:
+Below is an example of how to launch an EC2 instance and wait for it to be available:
 
 ```shell
 - name: Launching EC2 Instance
@@ -199,11 +199,11 @@ Below an example of how to launch an EC2 instance and wait for it to be availabl
   with_items: ec2.instances
 ```
 
-## 8 - You can run a task only once
+## 8 - You can tell Ansible to run a task only once
 
 Sometimes you might want to run a task only once, even when there are multiple hosts. As an example, let's say you have several application servers that connect to the same database and you have a task that performs a database migration. In this case, you need to run this task only once.
 
-To achieve that, you can you the `run_once` parameter to tell Ansible to run the command only one time:
+To achieve that, you can use the `run_once` parameter to tell Ansible to run the command only one time:
 
 ```shell
 - name: run the database migrations
@@ -267,7 +267,7 @@ Alternatively, if you do need to use Ansible facts (automatically gathered by th
 
 ## 11 - Ansible has several notification modules
 
-Using ansible to automate your blue-green deployment? Running playbooks to provision new instances on AWS? Let your team know using one of their notifications modules. As an example, the task below will send a slack notification with a custom message:
+Using Ansible to automate your blue-green deployment? Running playbooks to provision new instances on AWS? Let your team know using one of their notifications modules. As an example, the task below will send a slack notification with a custom message:
 
 ```shell
 - hosts: servername
