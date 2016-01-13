@@ -323,7 +323,7 @@ $ ansible-playbook --check playbook.yml
 
 While this is useful in some scenarios, it might not work properly if your tasks use conditional steps.
 
-## 14 - Tasks can ben run step-by-step
+## 14 - Tasks can be run step-by-step
 
 Sometimes you don't want to run all tasks in your playbook. This is somewhat common when you're writing a new playbook and want to test it. Ansible provides a way to let you decide which tasks you want to run, through the use of the `--step` flag. It will let you choose if you want to run the task (y), skip it (n), or (c)ontinue  without asking.
 
