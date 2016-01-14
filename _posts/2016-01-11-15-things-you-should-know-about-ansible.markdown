@@ -54,7 +54,7 @@ In order to achieve idempotence, you could use the attribute `creates`. When pre
 - command: /usr/bin/create-database.sh creates=/path/to/database
 ```
 
-Always have in mind that Ansible has a lot of modules and most common operations do not require the use of the command module. For instance, there are modules for creating [filesystems](http://docs.ansible.com/ansible/filesystem_module.html), [adding entries to the hosts file](http://docs.ansible.com/ansible/hostname_module.html) and [managing cron entries](http://docs.ansible.com/ansible/cron_module.html). All these modules are idempotent by default, so you always should prefer them.
+Always have in mind that Ansible has a lot of modules and most common operations do not require the use of the command module. For instance, there are modules for creating [filesystems](http://docs.ansible.com/ansible/filesystem_module.html), [modifying the iptables](http://docs.ansible.com/ansible/iptables_module.html) and [managing cron entries](http://docs.ansible.com/ansible/cron_module.html). All these modules are idempotent by default, so you always should prefer them.
 
 ## 3 - Using Ansible setup's module to gather information about your hosts
 
