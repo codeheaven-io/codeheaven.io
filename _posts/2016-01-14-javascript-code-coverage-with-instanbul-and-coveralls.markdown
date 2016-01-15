@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript Code Coverage With Instanbul and Coveralls"
 date: 2016-01-14T21:50:18-02:00
-keywords: test,
+keywords: test, coverage, javascript, npm
 author: rafaeleyng
 excerpt: >
   A fast lane to set up code coverage in your project
@@ -25,7 +25,7 @@ I'll also assume that you have TravisCI server configured for your project.
 
 ### npm scripts
 
-npm scripts are scripts you add inside package.json. The "scripts" object contains your scripts. You can add arbitrary shell script commands there, like `"print-something": "echo 'something'"`. You run this script by invoking it by its name: `npm run print-something`.
+npm scripts are scripts you add inside package.json. You can add arbitrary shell script commands there, like: `"scripts": { "print-something": "echo 'something'" }`. You can run this script by invoking it by its name: `npm run print-something`.
 
 I try to use npm scripts as much as possible, to avoid global dependencies and to avoid the clutter to manually invoke local dependencies. So all examples here will use this approach.
 
