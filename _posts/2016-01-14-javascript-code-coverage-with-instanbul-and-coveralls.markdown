@@ -12,10 +12,10 @@ excerpt: >
 
 If you want to set up code coverage measurements in a project, there are usually 4 things that you'll need:
 
-- a **test runner** (like [https://github.com/mochajs/mocha](Moccha), [AVA](https://github.com/sindresorhus/ava)), to run your tests
-- a **code coverage** tool (like [https://github.com/gotwarlost/istanbul](Istanbul), [https://github.com/bcoe/nyc](nyc)), to generate code coverage reports
-- a **code coverage insight** service (like [https://coveralls.io/](Coveralls), [https://codecov.io/](Codecov)), to provide you a nice visualization of your code coverage data
-- a **reporting** tool (like [https://github.com/nickmerwin/node-coveralls](node-coveralls), [https://github.com/cainus/codecov.io/](codecov.io)), to send your reports to some service
+- a **test runner** (like [Mocha](https://github.com/mochajs/mocha), [AVA](https://github.com/sindresorhus/ava)), to run your tests
+- a **code coverage** tool (like [Istanbul](https://github.com/gotwarlost/istanbul), [nyc](https://github.com/bcoe/nyc)), to generate code coverage reports
+- a **code coverage insight** service (like [Coveralls](https://coveralls.io/), [Codecov](https://codecov.io/)), to provide you a nice visualization of your code coverage data
+- a **reporting** tool (like [node-coveralls](https://github.com/nickmerwin/node-coveralls), [codecov.io](https://github.com/cainus/codecov.io/)), to send your reports to some service
 
 ## Assumptions
 
