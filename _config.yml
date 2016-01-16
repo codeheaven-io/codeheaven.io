@@ -23,6 +23,8 @@ kramdown:
 google_universal_analytics: UA-60941725-1
 google_universal_analytics_cookiedomain: auto
 
+exclude: [vendor]
+
 gems:
   - octopress-escape-code
   - jekyll-sitemap
