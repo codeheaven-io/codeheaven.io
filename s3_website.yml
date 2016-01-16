@@ -13,8 +13,9 @@ gzip:
   - .css
   - .md
   - .markdown
+  - .js
 
-exclude_from_upload: 
+exclude_from_upload:
   - Gemfile
   - Gemfile.lock
   - Rakefile
