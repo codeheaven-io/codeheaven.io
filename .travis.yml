@@ -1,13 +1,8 @@
 language: ruby
 rvm:
-  - 2.1
+  - 2.1.2
 
 script: ./_ci/build
-
-# whitelist
-branches:
-  only:
-    - /./
 
 env:
   global:
