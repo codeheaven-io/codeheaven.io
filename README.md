@@ -1,5 +1,6 @@
 # CodeHeaven.io
 
+[![Build Status](https://travis-ci.org/codeheaven-io/codeheaven.io.svg?branch=master)](https://travis-ci.org/codeheaven-io/codeheaven.io)
 
 ## Requirements
 
@@ -45,7 +46,7 @@ $ octopress id _posts/my_awesome_post.markdown _posts/my_awesome_post-pt.markdow
 
   ```yaml
   S3_ID: <Your AWS Access Key ID>
-  S3_SECRET: <Your AWS Secret Access Key> 
+  S3_SECRET: <Your AWS Secret Access Key>
   ```
 
   2. Run `rake production`
