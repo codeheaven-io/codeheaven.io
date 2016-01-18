@@ -5,3 +5,6 @@ _deploy.yml
 
 # RubyMine
 .idea/*
+
+# html-proofer
+tmp

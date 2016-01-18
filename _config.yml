@@ -2,7 +2,7 @@
 title: CodeHeaven
 email: codeheaven.io@gmail.com
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://codeheaven.io/"
+url: "http://codeheaven.io"
 author: codeheaven
 lang: en
 

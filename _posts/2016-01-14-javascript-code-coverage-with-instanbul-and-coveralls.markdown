@@ -57,7 +57,7 @@ Run this script with `npm run coverage` and it will generate a `coverage` folder
 
 ## Code coverage insight service
 
-Just sign up to [https://coveralls.io/](Coveralls) and add the Github repo you want to watch.
+Just sign up to [Coveralls](https://coveralls.io/) and add the Github repo you want to watch.
 
 
 ## Coverage reporting tool
