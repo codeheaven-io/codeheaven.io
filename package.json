@@ -26,8 +26,8 @@
     "webpack": "^1.12.9"
   },
   "scripts": {
-    "test": "bundle exec htmlproof ./_site --url-ignore http://localhost:8080",
+    "test": "npm run build && bundle exec htmlproof ./_site --url-ignore http://localhost:8080",
     "build": "bundle exec jekyll build && webpack",
-    "deploy": "npm run build && npm test && s3_website push"
+    "deploy": "npm test && s3_website push"
   }
 }
