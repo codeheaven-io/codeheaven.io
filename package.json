@@ -1,0 +1,20 @@
+{
+  "name": "codeheaven-io",
+  "version": "1.0.0",
+  "description": "CodeHeaven's blog - codeheaven.io",
+  "author": "CodeHeaven",
+  "main": "index.js",
+  "license": "MIT",
+  "homepage": "http://codeheaven.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeheaven-io/codeheaven.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codeheaven-io/codeheaven.io/issues"
+  },
+  "dependencies": {
+    "d3": "^3.5.12",
+    "lodash": "^4.0.0"
+  }
+}
