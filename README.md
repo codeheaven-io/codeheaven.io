@@ -17,6 +17,8 @@ gem install s3_website
 git clone https://github.com/codeheaven-io/codeheaven.io.git
 cd codeheaven.io
 bundle install
+npm install -g webpack
+npm install
 jekyll serve
 ```
 
@@ -49,4 +51,4 @@ $ octopress id _posts/my_awesome_post.markdown _posts/my_awesome_post-pt.markdow
   S3_SECRET: <Your AWS Secret Access Key>
   ```
 
-  2. Run `rake production`
+  2. Run `npm run deploy`
