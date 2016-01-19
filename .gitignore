@@ -6,6 +6,7 @@ node_modules/
 
 # RubyMine
 .idea/*
+npm-debug.log
 
 # html-proofer
 tmp
