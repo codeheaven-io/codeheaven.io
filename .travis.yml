@@ -2,7 +2,13 @@ language: ruby
 rvm:
   - 2.1.2
 
-script: ./_ci/build
+before_script:
+  - npm install -g webpack
+  - npm install
+
+script:
+  - npm run build
+  - npm test
 
 env:
   global:
