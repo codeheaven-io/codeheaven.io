@@ -106,4 +106,4 @@ axios.get('https://api.github.com/users/codeheaven-io', config);
 axios.post('/save', { firstName: 'Marlon' }, config);
 ```
 
-You can read more information about axios here: [https://github.com/mzabriskie/axios](https://github.com/mzabriskie/axios)
+You can read more information about axios here: [httpsgithub.com/mzabriskie/axios](https://github.com/mzabriskie/axios)
