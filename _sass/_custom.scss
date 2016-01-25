@@ -1,6 +1,19 @@
 .site-header {
   margin: 0;
-  padding: 4rem 0;
+  padding: 3rem 0;
+}
+
+.single-column {
+  width: 700px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .single-column {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: auto;
+  }
 }
 
 article {
@@ -17,13 +30,14 @@ article {
 b, strong {
   font-family: $bold-font;
 }
+
 .page-header {
   background-color: #f2f2f2;
   padding: 5rem 0;
   margin-bottom: 3rem;
 
   h1 {
-    font-size: 7rem;
+    font-size: 5rem;
     margin-bottom: 0;
   }
 
@@ -34,7 +48,7 @@ b, strong {
 
 .blog-title {
   font-family: $logo-font;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .blog-menu {
