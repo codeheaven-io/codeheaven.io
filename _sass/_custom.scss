@@ -18,9 +18,9 @@ b, strong {
   font-family: $bold-font;
 }
 .page-header {
-  margin: 0 -25% 3rem -25%;
   background-color: #f2f2f2;
-  padding: 5rem 25%;
+  padding: 5rem 0;
+  margin-bottom: 3rem;
 
   h1 {
     font-size: 7rem;
