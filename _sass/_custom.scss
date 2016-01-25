@@ -8,14 +8,6 @@
   margin: 0 auto;
 }
 
-@media (max-width: 767px) {
-  .single-column {
-    margin-left: 20px;
-    margin-right: 20px;
-    width: auto;
-  }
-}
-
 article {
   a {
     color: #0A7187;
@@ -102,4 +94,28 @@ body {
 
 .talk-media-link {
   color: #4C83B5;
+}
+
+@media (max-width: 767px) {
+
+  .blog-menu {
+    float: initial;
+  }
+  .blog-menu a:first-child {
+    padding: 0 2rem 0 0;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+  }
+
+  .single-column {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: auto;
+  }
+
+  .container {
+    padding: 0;
+  }
 }
