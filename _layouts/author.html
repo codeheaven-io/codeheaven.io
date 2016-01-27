@@ -8,13 +8,13 @@ layout: compress
       {% include header.html %}
       {% assign author = site.data.authors[page.author] %}
       <header class="page-header">
-        <div class="container">
+        <div class="container single-column">
           <h1>{{ author.name }}</h1>
           <div>{% include author/avatar.html author=author size=100 %}</div>
           {% include author/links.html author=page.author except_name=true %}
         </div>
       </header>
-      <main class="container">
+      <main class="container single-column">
         {{ author.about }}
 
         <h2>Posts by {{ author.name }}</h2>

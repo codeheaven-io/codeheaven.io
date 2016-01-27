@@ -7,11 +7,11 @@ layout: compress
   <body>
       {% include header.html %}
       <header class="page-header">
-        <div class="container">
+        <div class="container single-column">
           <h1>Authors</h1>
         </div>
       </header>
-      <main class="container">
+      <main class="container single-column">
         <ul>
           {% for a in site.data.authors %}
             {% assign author = a[0] %}
