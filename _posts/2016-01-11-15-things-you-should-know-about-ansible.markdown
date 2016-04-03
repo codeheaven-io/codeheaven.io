@@ -248,7 +248,7 @@ Enabling pipelining reduces the number of SSH operations required to execute a m
 You should be careful, though. Pipelining will only work if the option `requiretty` is disabled on all remote machines in the sudoers file (/etc/sudoers).
 
 ```shell
-[defaults]
+[ssh_connection]
 pipelining = True
 ```
 
