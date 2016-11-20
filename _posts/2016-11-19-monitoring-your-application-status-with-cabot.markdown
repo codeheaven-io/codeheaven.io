@@ -10,6 +10,10 @@ excerpt: >
 
 Cabot is a application monitoring service. Basically a system that you deploy to your own infrastructure and configure it to check the URLs of your applications at a given interval, and possibly enable some kind of alert when things go down.
 
+It looks like this:
+
+![screen shot 2016-11-19 at 11 23 48 pm](https://cloud.githubusercontent.com/assets/4842605/20459783/9930e04a-aeb5-11e6-8fed-1ab2aa866d95.png)
+
 There's a lot of services that offer similar functionality ([Pingdom](https://www.pingdom.com/), [Uptime Robot](https://uptimerobot.com/)), but Cabot is self-hosted, open-source and free, so you don't have to worry about constraints like a minimum check interval or a maximum number of applications that you can monitor.
 
 This is a pretty basic "get started" that shows how to quickly get Cabot working. I will show only one way of doing each thing.
