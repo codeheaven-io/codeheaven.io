@@ -54,7 +54,7 @@ You can have a **service** with multiple **instances**, and multiple **checks** 
 
 I'm using Cabot to monitor both my front-end servers and my API, of multiple applications, running each on multiple servers.
 
-I start by creating my **instances**. Every newly created instance will have an IP/hostname, and will automatically create a ping check to it. For each instance, I create an HTTP check that checks for HTTP status and some text match on the return. Then I create a service and group on it all of its instances.
+I start by creating my **instances**. Every newly created instance will have an IP/hostname, and will automatically create a ping **check** to it. For each instance, I create an HTTP **check** that checks for HTTP status and some text match on the return. Then I create a **service** and group on it all of its instances.
 
 ## Automating
 
