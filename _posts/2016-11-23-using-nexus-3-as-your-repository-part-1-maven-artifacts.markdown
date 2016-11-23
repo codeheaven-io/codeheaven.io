@@ -17,7 +17,7 @@ This is the first part of a series of posts around Nexus 3 and how to use it as 
 Install it with docker:
 
 ```
-docker run -d -p 8081:8081 -p 8082:8082 -p 8083:8083 --name unimedvtrp-nexus sonatype/nexus3:3.0.0
+docker run -d -p 8081:8081 -p 8082:8082 -p 8083:8083 --name my-nexus sonatype/nexus3:3.0.0
 ```
 
 <small>
