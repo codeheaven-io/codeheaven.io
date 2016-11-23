@@ -118,7 +118,9 @@ Put this in your `~/.m2/settings.xml` file. This will configure the credentials 
 </settings>
 ```
 
-Put this in the `pom.xml` of your project:
+And now configure your projects.
+
+If you want only to download dependencies from Nexus, put this in the `pom.xml`:
 
 ```
 <project ...>
@@ -131,6 +133,16 @@ Put this in the `pom.xml` of your project:
       <url>http://your-host:8081/repository/maven-group/</url>
     </repository>
   </repositories>
+</project>
+```
+
+And if you want also to publish your project, add:
+
+```
+<project ...>
+
+  ...
+
   <distributionManagement>
     <snapshotRepository>
       <id>nexus-snapshots</id>
@@ -144,15 +156,11 @@ Put this in the `pom.xml` of your project:
 </project>
 ```
 
-Now if you run in your applications and libs:
+Now if you run in your projects:
 
 ```
 mvn install
-```
-
-or in your libs:
-
-```
+# or
 mvn deploy
 ```
 
