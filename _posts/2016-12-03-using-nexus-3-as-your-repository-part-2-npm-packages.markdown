@@ -16,7 +16,7 @@ This is the second part of a series of posts around Nexus 3 and how to use it as
 
 ## Installation
 
-Check out the first part of this series to see how we installed and ran Nexus 3 using a single docker command. Just do that and the installation is done.
+Check out the [first part](http://codeheaven.io/using-nexus-3-as-your-repository-part-1-maven-artifacts/) of this series to see how we installed and ran Nexus 3 using a single docker command. Just do that and the installation is done.
 
 ## Configuring Nexus as a npm repo
 
@@ -51,7 +51,7 @@ Create a new npm (proxy) repository and configure it like:
 
 This will group all the above repos and provide you a single URL to configure your clients to download from/deploy to.
 
-Create a new maven (group) repository and configure it like:
+Create a new npm (group) repository and configure it like:
 
 ![npm-group0](https://cloud.githubusercontent.com/assets/4842605/20909963/d6f41e32-bb45-11e6-9134-848409b5d781.png)
 
