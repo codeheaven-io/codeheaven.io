@@ -33,7 +33,7 @@ A repository for npm packages that your team develops.
 
 Create a new npm (hosted) repository and configure it like:
 
-################ TODO
+![npm-private0](https://cloud.githubusercontent.com/assets/4842605/20909966/d6f8101e-bb45-11e6-9791-0f2472866fdd.png)
 
 The deployment policy "Allow redeploy" above might look somewhat polemic, so you might want to set it to "Disable redeploy". In my use case, it makes sense to use "Allow redeploy", since we keep a `latest` version on Nexus always updated with the status of the master branch, that is redeployed in our CI flow.
 
@@ -43,7 +43,9 @@ A repository that proxies everything you download from the official npm registry
 
 Create a new npm (proxy) repository and configure it like:
 
-################ TODO
+![npm-registry0](https://cloud.githubusercontent.com/assets/4842605/20909964/d6f6568e-bb45-11e6-9161-6e302ed1757f.png)
+
+![npm-registry1](https://cloud.githubusercontent.com/assets/4842605/20909965/d6f7e9ea-bb45-11e6-86f1-c6ce957bf948.png)
 
 ### group repo
 
@@ -51,7 +53,7 @@ This will group all the above repos and provide you a single URL to configure yo
 
 Create a new maven (group) repository and configure it like:
 
-################ TODO
+![npm-group0](https://cloud.githubusercontent.com/assets/4842605/20909963/d6f41e32-bb45-11e6-9134-848409b5d781.png)
 
 You can create as many repos as you need and group them all in the group repo, but for npm I don't think that you will need more than 1 proxy and 1 private repos.
 
@@ -66,8 +68,11 @@ registry=http://your-host:8081/repository/npm-group/
 _auth=YWRtaW46YWRtaW4xMjM=
 ```
 
-################ TODO
-`_auth=YWRtaW46YWRtaW4xMjM=` is a hashed credential for the default Nexus credentials (admin/admin123). If you use a different set of credentials, you should compute your own hash. I just don't know the hashing algorithm used, right now, but I plan to complete this part later.
+`_auth=YWRtaW46YWRtaW4xMjM=` is the base64 hash for the credentials (admin/admin123). If you use a different set of credentials, you should compute your own hash with:
+
+```
+echo -n 'myuser:mypassword' | openssl base64
+```
 
 If you have a project that you want to **publish** to your Nexus, put this in `package.json`:
 
