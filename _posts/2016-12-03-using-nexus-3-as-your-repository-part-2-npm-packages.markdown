@@ -98,4 +98,10 @@ npm publish
 
 your `npm` will point to your Nexus instance.
 
-If you want to install some package globally, you have to do:
+## Installing npm packages globally
+
+Run:
+
+```
+npm --registry http://your-host:8081/repository/npm-group/ install -g your-package
+```
