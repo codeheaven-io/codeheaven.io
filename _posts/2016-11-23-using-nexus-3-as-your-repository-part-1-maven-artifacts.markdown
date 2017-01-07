@@ -9,7 +9,7 @@ excerpt: >
 ---
 
 <small>
-This is the first part of a series of posts around Nexus 3 and how to use it as repository for several technologies.
+This is the first part of a series of posts on Nexus 3 and how to use it as repository for several technologies.
 </small>
 
 ## Installation
