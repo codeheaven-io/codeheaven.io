@@ -128,7 +128,7 @@ ansible-vault edit secrets.yml
 If you import the vars_file `secrets.yml` in your playbook, Ansible will fail, as it will not know how to read the encrypted file. You'll have to specify the command line argument `--ask-vault-pass`, which will make Ansible prompt you the password of the encrypted file.
 
 ```shell
-ansible-playbook playbook.yml -i hosts --ask-vault-password
+ansible-playbook playbook.yml -i hosts --ask-vault-pass
 ```
 
 Another way is to store the password in a file (which should not be commited) and specify the path to the file using the `--vault-password-file` argument. If this file is marked as executable, Ansible will run it and use the output as the password.
