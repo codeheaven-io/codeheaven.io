@@ -9,7 +9,7 @@ excerpt: >
 ---
 
 <small>
-This is the second part of a series of posts around Nexus 3 and how to use it as repository for several technologies.
+This is the second part of a series of posts on Nexus 3 and how to use it as repository for several technologies.
 </small>
 
 `npm install` can take too long sometimes, so it might be a good idea to have a proxy in your own network. And if you can't just pay the 7 dollars/month to host your packages in the official npm private registry, then you'll probably benefit from this post.
