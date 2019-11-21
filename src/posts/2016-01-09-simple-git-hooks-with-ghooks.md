@@ -6,7 +6,6 @@ keywords: git, hooks, workflow
 author: rafaeleyng
 excerpt: >
   Learn how to use git hooks easily to leverage best practices in your workflow.
-translation_id: 6c1babcd20a7f22e79eb0ed2fb75c0a4
 ---
 
 ## git hooks

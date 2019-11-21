@@ -2,7 +2,6 @@
 layout: post
 title: "Testing React Components With Enzyme"
 date: 2015-12-14T12:51:46-02:00
-translation_id: 265ad0b488c037ed974acb0c2be0190b
 keywords: react, testing, javascript
 author: marlonbernardes
 excerpt: >

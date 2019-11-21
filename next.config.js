@@ -2,7 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const slugify = require('slugify');
 
-module.exports = {
+const withSass = require('@zeit/next-sass')
+
+module.exports = withSass({
   exportPathMap: async function() {
     const paths = {
       '/': { page: '/' },
@@ -27,4 +29,4 @@ module.exports = {
     })
     return config
   },
-};
+})

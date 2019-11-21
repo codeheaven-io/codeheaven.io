@@ -9,8 +9,11 @@
     "start": "next start src"
   },
   "dependencies": {
+    "@zeit/next-sass": "1.0.1",
+    "dateformat": "3.0.3",
     "gray-matter": "4.0.2",
     "next": "9.1.4",
+    "node-sass": "4.13.0",
     "raw-loader": "3.1.0",
     "react": "16.12.0",
     "react-dom": "16.12.0",
