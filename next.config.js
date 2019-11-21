@@ -12,6 +12,7 @@ module.exports = withSass({
       // '/about': { page: '/about' }
     };
 
+    // generate posts pages
     fs.readdirSync(path.resolve(__dirname, 'src', 'posts')).forEach(filename => {
       if (!filename.endsWith('.md')) {
         return
@@ -19,6 +20,9 @@ module.exports = withSass({
       const slug = slugify(filename).slice(0, -3)
       paths[`/${slug}`] = { page: '/[slug]', query: { slug } };
     });
+
+    // TODO
+    // generate authors pages
 
     return paths;
   },

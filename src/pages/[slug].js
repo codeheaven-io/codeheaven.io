@@ -14,7 +14,7 @@ export default function BlogTemplate(props) {
   )
 }
 
-BlogTemplate.getInitialProps = async function(context) {
+BlogTemplate.getInitialProps = async (context) => {
   const content = await import(`../posts/${context.query.slug}.md`)
   const data = matter(content.default)
 

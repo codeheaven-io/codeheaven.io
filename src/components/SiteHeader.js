@@ -1,12 +1,14 @@
+import Link from 'next/link'
 import site from '../data/site'
 
-const Header = () => {
+const SiteHeader = () => {
   return (
     <div className="container">
       <header className="site-header single-column">
-        <a className="blog-title" href={site.baseurl}>{site.title}</a>
+        <Link href="/"><a className="blog-title">{site.title}</a></Link>
+
         <nav className="blog-menu" >
-          <a href={`${site.baseurl}/authors`}>Authors</a>
+          <Link href={`${site.baseurl}/authors`}><a>Authors</a></Link>
           <a href="https://github.com/codeheaven-io/codeheaven.io" target="_blank">Github</a>
         </nav>
       </header>
@@ -14,4 +16,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default SiteHeader

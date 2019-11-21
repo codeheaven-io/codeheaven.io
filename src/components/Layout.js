@@ -1,17 +1,17 @@
 import Head from './Head'
-import Header from './Header'
+import SiteHeader from './SiteHeader'
+import PageHeader from './PageHeader'
+import Main from './Main'
+
 import './Styles'
 
-const Layout = (props) => {
+const Layout = ({ title, pageHeader, main }) => {
   return (
     <>
-      <Head>
-        <title>TODO</title>
-      </Head>
-      <Header />
-      <main className="container single-column">
-        {props.children}
-      </main>
+      <Head />
+      <SiteHeader />
+      {title && <PageHeader title={title}>{pageHeader}</PageHeader>}
+      <Main>{main}</Main>
     </>
   )
 }

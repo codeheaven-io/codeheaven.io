@@ -1,9 +1,10 @@
 import NextjsHead from 'next/head'
+import site from '../data/site'
 
-const Head = (props) => {
+const Head = ({ page = {} }) => {
   return (
     <NextjsHead>
-      <title>TODO</title>
+      <title>{page.title || site.title}</title>
       <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines }}{% else %}{% endif %}" />
 
       <meta name="language" content="en" />
