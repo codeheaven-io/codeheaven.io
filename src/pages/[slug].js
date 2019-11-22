@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 
 import Layout from '../components/Layout'
 import AuthorLinks from '../components/AuthorLinks'
+import Disqus from '../components/Disqus'
 
 import { dateMachine, dateHuman } from '../utils/date'
 import getPosts from '../utils/getPosts'
@@ -10,6 +11,12 @@ import getPosts from '../utils/getPosts'
 import authors from '../data/authors'
 
 const Post = ({ author, authorKey, post }) => {
+  const title = post.document.data.title
+  const pageData = {
+    title,
+    url: `/${post.slug}`,
+  }
+
   const contentHeader = (
     <>
       <p className="post-meta">
@@ -34,14 +41,10 @@ const Post = ({ author, authorKey, post }) => {
       <article className="post-content" itemProp="articleBody">
         <ReactMarkdown escapeHtml={false} source={post.document.content} />
       </article>
+
+      <Disqus pageData={pageData} />
     </section>
   )
-
-  const title = post.document.data.title
-  const pageData = {
-    title,
-    url: `/${post.slug}`,
-  }
 
   return (
     <Layout

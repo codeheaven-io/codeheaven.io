@@ -1,5 +1,8 @@
 export default {
   title: 'CodeHeaven',
-  baseurl: '',
   url: 'http://codeheaven.io',
+
+  // Google Analytics info
+  googleUniversalAnalytics: 'UA-60941725-1',
+  googleUniversalAnalyticsCookiedomain: 'auto',
 }

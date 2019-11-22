@@ -1,16 +1,17 @@
 import NextjsHead from 'next/head'
 import site from '../data/site'
 
+import GoogleAnalytics from './GoogleAnalytics'
+
 const Head = ({ pageData = {} }) => {
   return (
     <NextjsHead>
       <title>{pageData.title || site.title}</title>
 
+      <link href="//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic" rel="stylesheet" type="text/css" />
       <link rel="canonical" href={`${site.url}${pageData.url || ''}`} />
       {/* TODO feed XML */}
       {/* <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" /> */}
-
-      <link href="//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic" rel="stylesheet" type="text/css" />
 
       <meta name="description" content={pageData.excerpt || ''} />
       <meta name="language" content="en" />
@@ -20,8 +21,7 @@ const Head = ({ pageData = {} }) => {
       <meta name="author" content={pageData.author || 'Marlon Bernardes, Rafael Eyng'} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      {/* TODO */}
-      {/* {% include google_analytics.html %}   */}
+      <GoogleAnalytics />
     </NextjsHead>
   )
 }
