@@ -1,4 +1,4 @@
-const PageHeader = ({ title, children }) => (
+const ContentHeader = ({ title, children }) => (
   <header className="page-header">
     <div className="container single-column">
       <h1>{title}</h1>
@@ -7,4 +7,4 @@ const PageHeader = ({ title, children }) => (
   </header>
 )
 
-export default PageHeader
+export default ContentHeader

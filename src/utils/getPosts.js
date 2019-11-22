@@ -1,5 +1,6 @@
 import matter from 'gray-matter'
-import slugify from 'slugify'
+
+import { slugify } from './slug'
 
 // from https://dev.to/tinacms/creating-a-markdown-blog-with-next-js-52hk
 const getPosts = () => {
@@ -10,7 +11,7 @@ const getPosts = () => {
   return keys.map((key, index) => {
     const value = values[index]
     const document = matter(value.default)
-    const slug = slugify(key.replace('./', '')).slice(0, -3)
+    const slug = slugify(key)
 
     return {
       document,

@@ -8,9 +8,9 @@ excerpt: >
   In this third post of the series, we will setup Nexus 3 to use it as Docker private registry and as a proxy to Docker Hub.
 ---
 
-<small>
+<p><small>
 This is the third and last part of a series of posts on Nexus 3 and how to use it as repository for several technologies.
-</small>
+</small></p>
 
 ## Installation
 
@@ -25,9 +25,11 @@ What we will do:
 
 I suggest you to create a new blob store for each new repo you want to create. That way, the data for every repo will be in a different folder in `/nexus-data` (inside the Docker container). But this is not mandatory for it to work.
 
-By default, the Docker client communicates with the repo using HTTPS. In my use case I had to configure it with HTTP, first off because we didn't have the certificate nor the knowledge on how to obtain them.
+By default, the Docker client communicates with the repo using HTTPS. In my use case I had to configure it with HTTP, because we didn’t have the certificate nor the knowledge on how to obtain it.
 
-Important to notice: the Docker repo requires 2 different ports. We are going to use 8082 for pull from the proxy repo and 8083 for pushing to the private repo.
+Important to notice: the Docker repo requires 2 different ports. We are going to use 8082 for pull from the proxy repo and 8083 for pull and push to the private repo.
+
+I had some problems with slightly older versions of Docker, so I strongly suggesting you to start with the version that I’ve tested with, that is `1.12.3`.
 
 ### private repo
 
@@ -59,9 +61,31 @@ Create a new Docker (group) repository and configure it like:
 
 You can create as many repos as you need and group them all in the group repo.
 
+This step is actually optional to use Nexus 3 as a Docker repository, because we can stick to pulling and pushing to the proxy and hosted repositories as will be discussed later.
+
 ## Configuring your clients and projects to use your Nexus repos
 
-To interact with your repo, the first thing is to authenticate your machine to it with:
+To interact with your repo, the first thing is to configure the Docker daemon in your machine to accept working with HTTP instead of HTTPS.
+
+How exactly to do this config depends on your operating system, so you should check [dockerd](https://docs.docker.com/engine/reference/commandline/dockerd/) documentation. On RHEL I did it putting this content in `/etc/docker/daemon.json`:
+
+```
+{
+  "insecure-registries": [
+    "your-repo:8082",
+    "your-repo:8083"
+  ],
+  "disable-legacy-registry": true
+}
+```
+
+You have to restart the daemon after setting this (`sudo systemctl restart docker`).
+
+On Windows or Mac you should config your deamon in a box like this:
+
+![daemon](https://cloud.githubusercontent.com/assets/4842605/21745349/f8af75b4-d510-11e6-8383-c3594b525ea4.png)
+
+Now we have to authenticate your machine to the repo with:
 
 ```
 docker login -u admin -p admin123 your-repo:8082
@@ -103,4 +127,4 @@ docker tag your-own-image:1 your-repo:8082/your-own-image:1
 docker tag your-own-image:1 your-repo:8083/your-own-image:1
 ```
 
-Both ports will work. I suspect that is because using port 8083 will connect directly to the hosted repo, whilst using port 8082 will connect to the group repo, that contains the hosted repo. I suggest you to stick to port 8083 to avoid duplicate images in your machines.
+Both ports will work. I suspect that is because using port 8083 will connect directly to the hosted repo, whilst using port 8082 will connect to the group repo, which contains the hosted repo. I suggest you to stick to port 8083 to avoid duplicate images in your machines. If you chose to stick with port 8083 to pull your own images, you probably could skip creating the group repo, if you prefer.

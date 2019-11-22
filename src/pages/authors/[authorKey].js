@@ -7,10 +7,11 @@ import AuthorLinks from '../../components/AuthorLinks'
 
 import authors from '../../data/authors'
 
+import { dateHuman } from '../../utils/date'
 import getPosts from '../../utils/getPosts'
 
 const Author = ({ author, authorKey, posts }) => {
-  const pageHeader = (
+  const contentHeader = (
     <>
       {author.gravatar && (
         <div>
@@ -27,9 +28,9 @@ const Author = ({ author, authorKey, posts }) => {
       <ul>
         {posts.map((post) => (
           <li>
-            {dateformat(post.document.data.date, 'mmm d, yyyy')}
+            {dateHuman(post.document.data.date)}
             {' - '}
-            <Link href="/[slug]" as={`/${post.slug}`}>
+            <Link href="/[slug]" as={`/${post.slug}/`}>
               <a>{post.document.data.title}</a>
             </Link>
           </li>
@@ -38,8 +39,17 @@ const Author = ({ author, authorKey, posts }) => {
     </>
   )
 
+  const pageData = {
+    url: `/authors/${authorKey}/`,
+  }
+
   return (
-    <Layout title={author.name} main={main} pageHeader={pageHeader} />
+    <Layout
+      contentHeader={contentHeader}
+      main={main}
+      pageData={pageData}
+      contentTitle={author.name}
+    />
   )
 }
 

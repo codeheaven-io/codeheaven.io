@@ -1,16 +1,16 @@
 import Head from './Head'
 import SiteHeader from './SiteHeader'
-import PageHeader from './PageHeader'
+import ContentHeader from './ContentHeader'
 import Main from './Main'
 
 import './Styles'
 
-const Layout = ({ title, pageHeader, main }) => {
+const Layout = ({ contentTitle, contentHeader, main, pageData = {} }) => {
   return (
     <>
-      <Head />
+      <Head pageData={pageData} />
       <SiteHeader />
-      {title && <PageHeader title={title}>{pageHeader}</PageHeader>}
+      {contentTitle && <ContentHeader title={contentTitle}>{contentHeader}</ContentHeader>}
       <Main>{main}</Main>
     </>
   )

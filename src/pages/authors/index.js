@@ -19,8 +19,16 @@ const Authors = () => {
     </ul>
   )
 
+  const pageData = {
+    url: `/authors/`,
+  }
+
   return (
-    <Layout title="Authors" main={main}/>
+    <Layout
+      contentTitle="Authors"
+      main={main}
+      pageData={pageData}
+    />
   )
 }
 

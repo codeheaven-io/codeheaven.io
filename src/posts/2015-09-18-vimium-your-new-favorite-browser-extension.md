@@ -5,7 +5,7 @@ date: 2015-09-18T13:13:29-03:00
 lang: "en"
 author: marlonbernardes
 excerpt: >
-  Vimium is a Chrome extension that allows you to control your browser using your keyboard. 
+  Vimium is a Chrome extension that allows you to control your browser using your keyboard.
   In this post I'll show you how it can be used to increase your productivity.
 ---
 
@@ -44,5 +44,3 @@ If you type `?` after you install it, you'll see a list containing all shortcuts
 
 [Project's Homepage](https://vimium.github.io/)
 [Vimium Sourcecode](https://github.com/philc/vimium)
-
-
