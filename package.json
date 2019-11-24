@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "build": "next build src",
+    "deploy": "yarn run export && touch out/.nojekyll && gh-pages --remote pages -t -d out",
     "dev": "next dev src",
-    "export": "yarn build && next export src -o ./out",
+    "export": "yarn build && next export src -o out",
     "serve": "http-server out",
     "start": "next start src"
   },
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "esm": "3.2.25",
+    "gh-pages": "2.1.1",
     "slugify": "1.3.6"
   }
 }
