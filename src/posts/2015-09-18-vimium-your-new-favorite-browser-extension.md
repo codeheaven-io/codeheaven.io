@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Vimium: Your New Favorite Browser Extension!"
 date: 2015-09-18T13:13:29-03:00
-lang: "en"
 author: marlonbernardes
 excerpt: >
   Vimium is a Chrome extension that allows you to control your browser using your keyboard.

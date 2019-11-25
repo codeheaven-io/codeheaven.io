@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Using Nexus 3 as Your Repository - Part 1: Maven Artifacts"
 date: 2016-11-23T19:55:08-02:00
 keywords: nexus, repository, private, proxy, maven

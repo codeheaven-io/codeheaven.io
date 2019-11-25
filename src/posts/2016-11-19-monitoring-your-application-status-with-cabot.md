@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Monitoring Your Application Status With Cabot"
 date: 2016-11-19T19:05:26-02:00
 keywords: cabot, monitoring, status, ping

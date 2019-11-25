@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "JavaScript Code Coverage With Instanbul and Coveralls"
 date: 2016-01-14T21:50:18-02:00
 keywords: test, coverage, javascript, npm

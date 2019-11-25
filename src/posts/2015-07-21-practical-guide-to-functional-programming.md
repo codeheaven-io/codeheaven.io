@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Practical Guide to Functional Programming"
 date: 2015-07-21T22:46:46-03:00
 author: rafaeleyng

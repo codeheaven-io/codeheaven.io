@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "15 Things You Should Know About Ansible"
 date: 2016-01-12T19:05:11-02:00
 keywords: ansible, devops

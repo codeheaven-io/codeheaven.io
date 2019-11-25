@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Optimizing Assets in Jekyll-generated gh-pages"
 date: 2015-10-30T22:28:39-02:00
 author: rafaeleyng

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Using Nexus 3 as Your Repository - Part 3: Docker Images"
 date: 2017-01-07T17:37:14-02:00
 keywords: nexus, repository, private, proxy, docker

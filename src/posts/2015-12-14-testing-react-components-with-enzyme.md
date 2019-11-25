@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Testing React Components With Enzyme"
 date: 2015-12-14T12:51:46-02:00
 keywords: react, testing, javascript

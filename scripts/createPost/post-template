@@ -1,9 +1,9 @@
 ---
-title: "Como usar Axios como cliente HTTP"
-date: 2015-07-15T22:39:43-03:00
-author: marlonbernardes
+title: TODO
+date: TODO
+author: TODO
 excerpt: >
-  Axios é um cliente HTTP que funciona tanto no browser quanto em node.js. Neste post veremos como fazer requisições HTTP utilizando a biblbioteca.
+  TODO
 ---
 
 ## Introdução
@@ -39,13 +39,13 @@ axios.get('https://api.github.com/users/' + username)
   .then(function(response){
     console.log(response.data); // ex.: { user: 'Your User'}
     console.log(response.status); // ex.: 200
-  });  
+  });
 
 // Requisições POST, note há um parâmetro extra indicando os parâmetros da requisição
 axios.post('/save', { firstName: 'Marlon', lastName: 'Bernardes' })
   .then(function(response){
     console.log('salvo com sucesso')
-  });  
+  });
 ```
 
 Além de `post` e `get`, existem os métodos `delete`, `head`, `put` e `patch`, que fazem requisições com o tipo equivalente em HTTP.

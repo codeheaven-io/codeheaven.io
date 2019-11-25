@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build src",
+    "create-post": "node ./scripts/createPost",
     "deploy": "yarn run export && touch out/.nojekyll && gh-pages --remote pages --branch master -t -d out",
     "dev": "next dev src",
     "export": "yarn build && next export src -o out",
