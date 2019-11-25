@@ -16,5 +16,7 @@ export const slugify = (str) => {
     result = result.slice(0, -3)
   }
 
-  return slugifyLib(result)
+  return slugifyLib(result, {
+    lower: true,
+  })
 }

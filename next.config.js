@@ -22,7 +22,6 @@ module.exports = withSass({
       paths[`/authors/${authorKey}`] = { page: '/authors/[authorKey]', query: { authorKey } }
     })
 
-
     // generate posts pages
     fs.readdirSync(path.resolve(__dirname, 'src', 'posts')).forEach(filename => {
       if (!filename.endsWith('.md')) {
