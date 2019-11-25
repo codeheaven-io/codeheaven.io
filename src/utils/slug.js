@@ -18,5 +18,6 @@ export const slugify = (str) => {
 
   return slugifyLib(result, {
     lower: true,
+    remove: /[*+~.()'"!:@]/g,
   })
 }
